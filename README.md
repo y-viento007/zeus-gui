@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## 2019/10/12時点の使い方メモ
+- `sample_json_server`のディレクトリで`README.md`に従いjsonサーバーを起動する
+- `npm start`でreact appを起動する
+
 ## Available Scripts
 
 In the project directory, you can run:

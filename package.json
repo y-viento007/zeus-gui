@@ -5,7 +5,9 @@
   "dependencies": {
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
-    "react-scripts": "3.1.2"
+    "react-samy-svg": "^3.0.7",
+    "react-scripts": "3.1.2",
+    "recharts": "^1.7.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,22 +1,48 @@
+
+@font-face {
+  font-family: 'SpaceFont';
+  src: url('./space age.ttf');
+} /* ソース：https://www.dafont.com/space-age.font?text=AQT-I&back=theme */
+
 .App {
   text-align: center;
 }
 
-.App-logo {
+/*.App-logo {
   height: 40vmin;
-}
+}*/
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 5vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+
+  font-family: 'SpaceFont';
+  font-style: normal;
+  font-weight: normal;
 }
 
-.App-link {
-  color: #09d3ac;
+.App-body {
+  background-color: #282c34;
+  min-height: 100vh;
 }
+
+.Image-SystemDiagram{
+  background-color: transparent;
+  width: 80%;
+  height: auto;
+}
+
+.Box-SystemDiagram{
+  width: 40%;
+  height: auto;
+}
+
+/*.App-link {
+  color: #09d3ac;
+}*/

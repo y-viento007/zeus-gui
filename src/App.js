@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SystemDiagram from './image/SystemDiagram/SystemDiagram.svg';
 import './App.css';
+import TLMGraph from './TLMGraph.js'
 import {
   ResponsiveContainer,
   LineChart,
@@ -11,41 +12,53 @@ import {
   Tooltip,
   Legend
 } from "recharts";
-// import { Samy, SvgProxy } from 'react-samy-svg';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 
 
 class App extends Component {
   /* 初期State（状態）を設定する */
   constructor(props) {
     super(props); /* ES6のclass構文では、明示的にsuper()メソッドを呼び出す */
+
+    var num = 15;
+    var new_data = [];
+    for (var i = 0; i < num; i++) {
+      new_data.push({
+        time: i,
+        value: 5 + (Math.random()-0.5)
+      });
+    }
+
     this.state = {
       switch1: true,
       switch2: true,
-      data: [{"value":0,"time":0},{"value":1,"time":1}],
+      num: num,
+      data: new_data,
+      time: 0,
     };
-    this.handleSwitch1 = this.handleSwitch1.bind(this); // thisを弄りたいならbindする
+
+    // thisを弄りたいならbindする
+    this.handleSwitch1 = this.handleSwitch1.bind(this); 
     this.handleSwitch2 = this.handleSwitch2.bind(this);
+    this.updateData = this.updateData.bind(this);
+    this.tickT = this.tickT.bind(this);
+  }
+
+  updateData() {
+    var new_data = this.state.data;
+    new_data.push({
+      time: this.state.data[this.state.data.length - 1].time + 1,
+      value: 5 + (Math.random()-0.5)
+    });
+    new_data.shift();
+    // rechart.jsでグラフを逐次更新する際は一度データを初期化する（一瞬グラフが消えるので綺麗でない）
+    // this.setState({ data: [] });
+    // victoryならデータの更新だけでOK
+    this.setState({ data: new_data });
+  }
+
+  tickT() {
+    var now_time = this.state.time + 1;
+    this.setState({ time: now_time });
   }
 
   handleSwitch1() {
@@ -81,8 +94,6 @@ class App extends Component {
         (result) => {
           this.setState({data:result.voltage});
         },
-        // 補足：コンポーネント内のバグによる例外を隠蔽しないためにも
-        // catch()ブロックの代わりにここでエラーハンドリングすることが重要です
         (error) => {
           this.setState({
             error
@@ -91,16 +102,17 @@ class App extends Component {
       )
   }
   
-  
   // 定期実行する関数を設定
   // http://webdesign-dackel.com/2015/11/03/redux-periodic-action/
   componentDidMount() {
     this.timer1 = setInterval(this.handleSwitch1, 1000);
-    this.timer2 = setInterval(this.handleSwitch2, 1000);
+    this.timer3 = setInterval(this.tickT, 1000);
+    this.timer4 = setInterval(this.updateData, 1000);
   }
   componentWillUnmount() {
     clearInterval(this.timer1);
-    clearInterval(this.timer2);
+    clearInterval(this.timer3);
+    clearInterval(this.timer4);
   }
 
   /* 画面を生成 */
@@ -112,21 +124,14 @@ class App extends Component {
         </div>
 
         <div className="App-body">
-
+          {this.state.time}
           Switch1:
           <button onClick={this.handleSwitch1}>
             {this.state.switch1 ? "ON" : "OFF"}
           </button>
 
+          <TLMGraph data= {this.state.data} x_key="time" y_key="value" />
 
-          <div className="TestGraph">
-            <LineChart width={400} height={400} data={this.state.data}>
-              <XAxis dataKey="time" />
-              <Tooltip />
-              <Legend />
-              <Line type="linear" dataKey="value" stroke="#8884d8" />
-            </LineChart>
-          </div>
           <div className="Box-SystemDiagram">
             <img src={SystemDiagram} className="Image-SystemDiagram" alt="SystemDiagram" />
           </div>

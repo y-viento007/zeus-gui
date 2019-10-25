@@ -32,9 +32,14 @@
   min-height: 100vh;
 }
 
+.Box{
+  width: 40%;
+  height: auto;
+}
+
 .Image-SystemDiagram{
   background-color: transparent;
-  width: 80%;
+  width: 90%;
   height: auto;
 }
 

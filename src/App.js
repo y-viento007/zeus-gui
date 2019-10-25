@@ -2,16 +2,6 @@ import React, { Component } from 'react';
 import SystemDiagram from './image/SystemDiagram/SystemDiagram.svg';
 import './App.css';
 import TLMGraph from './TLMGraph.js'
-import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend
-} from "recharts";
 
 
 class App extends Component {
@@ -130,8 +120,9 @@ class App extends Component {
             {this.state.switch1 ? "ON" : "OFF"}
           </button>
 
-          <TLMGraph data= {this.state.data} x_key="time" y_key="value" />
-
+          <div className="Box">
+            <TLMGraph data= {this.state.data} x_key="time" y_key="value" />
+          </div>
           <div className="Box-SystemDiagram">
             <img src={SystemDiagram} className="Image-SystemDiagram" alt="SystemDiagram" />
           </div>

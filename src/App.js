@@ -32,9 +32,9 @@ class App extends Component {
     };
 
     // thisを弄りたいならbindする
-    this.handleSwitch1 = this.handleSwitch1.bind(this); 
-    this.handleSwitch2 = this.handleSwitch2.bind(this);
+    this.getSwitchStatus = this.getSwitchStatus.bind(this); 
     this.updateData = this.updateData.bind(this);
+    this.updateValve = this.updateValve.bind(this);
     this.tickT = this.tickT.bind(this);
   }
 
@@ -51,12 +51,21 @@ class App extends Component {
     this.setState({ data: new_data });
   }
 
+  updateValve() {
+    var time = this.state.time;
+    if (time%2==0){
+      this.setState({ valve_color: "green", valve_stroke: "black"})
+    } else {
+      this.setState({ valve_color: "red", valve_stroke: "none"})
+    }
+  }
+
   tickT() {
     var now_time = this.state.time + 1;
     this.setState({ time: now_time });
   }
 
-  handleSwitch1() {
+  getSwitchStatus() {
     fetch("http://localhost:3001/status")
       .then(res => res.json())
       .then(
@@ -82,32 +91,19 @@ class App extends Component {
       )
   }
 
-  handleSwitch2() {
-    fetch("http://localhost:3001/data")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({data:result.voltage});
-        },
-        (error) => {
-          this.setState({
-            error
-          });
-        }
-      )
-  }
-  
   // 定期実行する関数を設定
   // http://webdesign-dackel.com/2015/11/03/redux-periodic-action/
   componentDidMount() {
-    this.timer1 = setInterval(this.handleSwitch1, 1000);
+    this.timer1 = setInterval(this.getSwitchStatus, 1000);
     this.timer3 = setInterval(this.tickT, 1000);
     this.timer4 = setInterval(this.updateData, 1000);
+    this.timer5 = setInterval(this.updateValve, 1000);
   }
   componentWillUnmount() {
     clearInterval(this.timer1);
     clearInterval(this.timer3);
     clearInterval(this.timer4);
+    clearInterval(this.timer5);
   }
 
   /* 画面を生成 */
@@ -120,13 +116,11 @@ class App extends Component {
         </div>
 
         <div className="App-body">
-          {this.state.time}
-          Switch1:
-          <button onClick={this.handleSwitch1}>
-            {this.state.switch1 ? "ON" : "OFF"}
-          </button>
+          <p>Time increment: {this.state.time}</p>
+          <p>Switch status from json-server: {this.state.switch1 ? "ON" : "OFF"}</p>
 
           <div className="Box">
+            <p> Real-time graph test </p>
             <TLMGraph data= {this.state.data} x_key="time" y_key="value" />
           </div>
 
@@ -139,6 +133,7 @@ class App extends Component {
 
           {/* inline svg */}
           <div className="Box-SystemDiagram">
+            <p> SVG test </p>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="800" class="Image-SystemDiagram" alt="SystemDiagram">
             <defs>
                 <clipPath id="a">

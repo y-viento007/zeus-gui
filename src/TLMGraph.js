@@ -26,7 +26,7 @@ class TLMGraph extends Component {
         <div>
           <VictoryChart
             theme={VictoryTheme.material}
-            width={200} height={200}
+            width={450} height={200}
           >
             <VictoryLine 
               standalone={false}

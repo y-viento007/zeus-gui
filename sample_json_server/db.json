@@ -1,31 +1,38 @@
 {
-	"status": {
-		"sw1": "OFF",
-		"sw2": "OFF"
-	},
-	"data": {
-		"voltage": [
-			{
-				"value": 5.12,
-				"time": 0
-			},
-			{
-				"value": 5.10,
-				"time": 1
-			},
-			{
-				"value": 5.11,
-				"time": 2
-			},
-			{
-				"value": 5.15,
-				"time": 3
-			},
-			{
-				"value": 5.13,
-				"time": 4
-			}
-		]
-	}
-		
+  "status": {
+    "ID": 1,
+    "name": "hoge_voltage",
+    "current_time": "20191202_090230",
+    "sw1": "OFF",
+    "data":
+      [
+      {
+        "value": 5.12,
+        "time": 0
+      },
+      {
+        "value": 5.1,
+        "time": 1
+      },
+      {
+        "value": 5.11,
+        "time": 2
+      },
+      {
+        "value": 5.15,
+        "time": 3
+      },
+      {
+        "value": 5.13,
+        "time": 4
+      }
+    ]
+  },
+
+  "status2": {
+    "data": {
+      "value": 5.12,
+      "time": 0,
+    }
+  },
 }

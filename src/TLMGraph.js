@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
 
-import './TLMGraph.css';
+import './TlmGraph.css';
 
-import * as V from 'victory';
 import {VictoryChart,VictoryTheme,VictoryLine} from 'victory';
 
 
-class TLMGraph extends Component {
+class TlmGraph extends Component {
 	constructor(props) {
     super(props);
     this.state = {
       data: props.data,
       x_key: props.x_key,
       y_key: props.y_key,
-    }
+    };
 	}
 
-  componentDidUpdate() {
-    this.state.data= this.props.data;
-  }
+  // componentDidUpdate() {
+  //   this.setState({ data: this.props.data });
+  // }
 
-	render() {
+  render() {
     return (
-      <div>
-        <div>
+        <div className="TlmGraph-body">
           <VictoryChart
             theme={VictoryTheme.material}
             width={450} height={200}
@@ -31,16 +29,15 @@ class TLMGraph extends Component {
             <VictoryLine 
               standalone={false}
               
-              data={this.state.data}
-              x={this.state.x_key}
-              y={this.state.y_key} 
+              data={this.props.data}
+              x={this.props.x_key}
+              y={this.props.y_key} 
             />
           </VictoryChart>
         </div>
-      </div>
     );
 	}
 }
 
 
-export default TLMGraph;
+export default TlmGraph;

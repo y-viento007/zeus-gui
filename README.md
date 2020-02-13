@@ -6,6 +6,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - `npm start`でreact appが起動するはず
 	- `npm install`が必要かも
 
+## 2020/02/13追記
+- `App.js`と`TlmDisplay.js` の上部にある`URL_BACKEND`をバックエンドURLのものに書き換えて使用する
+- 初期時刻は`App.js`上部の`CURRENT_DATE`で設定
+
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - node.jsをインストール
 - `./sample_json_server`のディレクトリで`README.md`に従いjsonサーバーを起動する
 - `npm start`でreact appが起動するはず
-	- `npm install`が必要かも
+	- `npm install`が必要
 
 ## 2020/02/13追記
 - `App.js`と`TlmDisplay.js` の上部にある`URL_BACKEND`をバックエンドURLのものに書き換えて使用する

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import TlmGraph from './TlmGraph.js'
+import TlmGraph from './TlmGraph.js';
+
+import config from 'AppConfig';
 
 // 設定
-const URL_BACKEND = "http://localhost:3001/status";
+// const URL_BACKEND = "http://localhost:3001/status";
 
 // TLMを表示するBOX
 // tlm_dataの情報からデータをリクエスト -> 別で行った方が良い？
@@ -27,7 +29,7 @@ class TlmDisplay extends Component {
       revision : 1,
     }
 
-    fetch(URL_BACKEND, {
+    fetch(config.URL_BACKEND, {
       method: 'POST',
       body: JSON.stringify(json_body),
       headers: new Headers({ 'Content-type' : 'application/json' })
@@ -90,13 +92,14 @@ class TlmDisplayArea extends Component {
 
     return (
       <div className="TlmDisplayArea">
+
         <h2> ソースコードベタ打ちtestデータの表示確認 </h2>
         <TlmGraph data={test_tlm_data0.test_data} x_key="time" y_key="value" />
         <p> {test_tlm_data1.name} : {test_tlm_data1.test_value} (Time: {test_tlm_data1.test_time}) </p>
         <p> {test_tlm_data2.name} : {test_tlm_data2.test_value} (Time: {test_tlm_data2.test_time}) </p>
 
         <h2> POSTして受け取ったデータの表示確認(TlmDisplayを使用) </h2>
-        <p>バックエンドURL: {URL_BACKEND} </p>
+        <p>バックエンドURL: {config.URL_BACKEND} </p>
         {/*  要素数だけTlmDisplayを作成 */}
         {tlm_data_array.map((tlm_data) =>
           <TlmDisplay key={tlm_data.ID} tlm_data={tlm_data} current_time={current_time} />

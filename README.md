@@ -10,6 +10,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - `App.js`と`TlmDisplay.js` の上部にある`URL_BACKEND`をバックエンドURLのものに書き換えて使用する
 - 初期時刻は`App.js`上部の`CURRENT_DATE`で設定
 
+## 2020/02/15追記
+- `src/config`内ファイルで初期設定を行う
+	- `URL_BACKEND`もここに集約
+- `AppConfig`がないと言われたら`npm install`を再実行すると動くかも
+
 
 ## Available Scripts
 

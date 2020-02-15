@@ -5,8 +5,11 @@
 
 // development.js 以外の設定ファイルで起動したい場合は、`NODE_ENV={ファイル名(.jsなし)} npm start`
 
+import moment from 'moment'
+
 export default {
     URL_BACKEND: "http://localhost:3001/status",
+    INITIAL_START_DATE : moment("20191202_090230",'YYYYMMDD_HHmmss'),
     TLM_DATA_ARRAY : [ 
           { 
             ID: 1,

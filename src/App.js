@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import SystemDiagram from '-!react-svg-loader!./image/SystemDiagram/SystemDiagram.svg'; // -!は必須
 import './App.css';
-import TlmGraph from './TlmGraph.js'
-import TlmDisplayArea from './TlmDisplay.js'
+import TlmGraph from './TlmGraph.js';
+import TlmDisplayArea from './TlmDisplay.js';
 
 import config from 'AppConfig';
 
-import moment from 'moment'
+import moment from 'moment';
 
 // 設定
-const URL_BACKEND = "http://localhost:3001/status";
+// const URL_BACKEND = "http://localhost:3001/status";
 
-// const CURRENT_DATE = "20191202_090230";
-const CURRENT_DATE = moment("20191202_090230",'YYYYMMDD_HHmmss');
+// const INITIAL_START_DATE = "20191202_090230";
+// const INITIAL_START_DATE = moment("20191202_090230",'YYYYMMDD_HHmmss');
 
 
 
@@ -21,27 +21,16 @@ class App extends Component {
   constructor(props) {
     super(props);
   　
-    //　テストデータ
-    var tlm_data_array = config.TLM_DATA_ARRAY;
-
-    //　テストデータ
-    var cmd_data = {
-      revision : 1,
-      type : "CMD",
-      name: "Valve_open",
-      args: [],
-    };
-
     this.state = {
-      current_time: CURRENT_DATE.format("YYYYMMDD_HHMMSS"),       // TLM表示したい最初の時刻
-      initial_start_date: CURRENT_DATE,
+      current_time: config.INITIAL_START_DATE.format("YYYYMMDD_HHMMSS"),       // TLM表示したい最初の時刻
+      initial_start_date: config.INITIAL_START_DATE,
       gui_start_date: moment(),  // GUIを開始した時刻（GUI内基準時刻）
-      tlm_data_array: tlm_data_array,
-      cmd_data : cmd_data,
+      tlm_data_array: config.TLM_DATA_ARRAY,
+      cmd_data : config.CMD_DATA,
       revision: 1,
+
       data: [{time:0,value:0}],
       switch1:true,
-
       time: 0,
       valve_color: "green",
       valve_stroke: "black",
@@ -94,7 +83,7 @@ class App extends Component {
       args: this.state.cmd_data.args,
     }
 
-    fetch(URL_BACKEND, {
+    fetch(config.URL_BACKEND, {
       method: 'POST',
       body: JSON.stringify(json_body),
       headers: new Headers({ 'Content-type' : 'application/json' })
@@ -160,7 +149,7 @@ class App extends Component {
           <p>current_time increment: {this.state.current_time} </p>
 
           <h2> CMDテスト </h2>
-          <p>バックエンドURL: {URL_BACKEND} </p>
+          <p>バックエンドURL: {config.URL_BACKEND} </p>
           <button onClick={this.testSendCmd}>CMDテスト</button>
 
           <div className="Test-body">

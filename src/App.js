@@ -5,6 +5,8 @@ import './App.css';
 import TlmGraph from './TlmGraph.js'
 import TlmDisplayArea from './TlmDisplay.js'
 
+import config from 'AppConfig';
+
 import moment from 'moment'
 
 // 設定
@@ -20,43 +22,7 @@ class App extends Component {
     super(props);
   　
     //　テストデータ
-    var tlm_data_array = [ 
-          { 
-            ID: 1,
-            name : "hoge_voltage",
-            display_type : "graph",
-            time_range : 3,
-            time_delta : 1,
-
-            // time:[], value:[]ではなく{time:,value:},{time:,value:}...としたい
-            // time : ["20191202_090200","20191202_090201","20191202_090202"], 
-            test_data : [
-                {time:"20191202_090200", value:5.0},
-                {time:"20191202_090201", value:4.9},
-                {time:"20191202_090202", value:5.2},
-              ], // テストデータ
-          },
-          { 
-            ID: 2,
-            name : "hoge-valve",
-            display_type : "value",
-            time_range : 0,
-            time_delta : null,
-
-            test_time : "20191202_090200",
-            test_value : "Close", // テストデータ
-          },
-          { 
-            ID: 3,
-            name : "hoge-heater-onoff-valve",
-            display_type : "value",
-            time_range : 0,
-            time_delta : null,
-
-            test_time : "20191202_090200",
-            test_value : "ON",// テストデータ
-          },
-      ];
+    var tlm_data_array = config.TLM_DATA_ARRAY;
 
     //　テストデータ
     var cmd_data = {

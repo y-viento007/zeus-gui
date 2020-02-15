@@ -1,3 +1,8 @@
+const path = require('path');
+const webpack = require('webpack');
+const environment = process.env.NODE_ENV || 'development';
+
+
 module.exports = {
   module: {
     loaders: [
@@ -16,5 +21,5 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
 };

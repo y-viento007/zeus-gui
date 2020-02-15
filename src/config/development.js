@@ -10,11 +10,18 @@ import moment from 'moment'
 export default {
     URL_BACKEND: "http://localhost:3001/status",
     INITIAL_START_DATE : moment("20191202_090230",'YYYYMMDD_HHmmss'),
+
+    TLM_WINDOW_TYPE : ["value-1","graph-1"],
+
     TLM_DATA_ARRAY : [ 
           { 
             ID: 1,
             name : "hoge_voltage",
-            display_type : "graph",
+
+            display_setting: {
+              type : "graph",
+              window : "graph-1",
+            },
             time_range : 3,
             time_delta : 1,
 
@@ -29,7 +36,12 @@ export default {
           { 
             ID: 2,
             name : "hoge-valve",
-            display_type : "value",
+
+            display_setting: {
+              type : "value",
+              window : "value-1",
+            },
+
             time_range : 0,
             time_delta : null,
 
@@ -39,7 +51,12 @@ export default {
           { 
             ID: 3,
             name : "hoge-heater-onoff-valve",
-            display_type : "value",
+            
+            display_setting: {
+              type : "value",
+              window : "value-1",
+            },
+
             time_range : 0,
             time_delta : null,
 

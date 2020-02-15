@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import SystemDiagram from '-!react-svg-loader!./image/SystemDiagram/SystemDiagram.svg'; // -!は必須
+// import SystemDiagram from '-!react-svg-loader!./image/SystemDiagram/SystemDiagram.svg'; // -!は必須
 import './App.css';
-import TlmGraph from './TlmGraph.js';
+
 import TlmDisplayArea from './TlmDisplay.js';
 
 import config from 'AppConfig';
 
 import moment from 'moment';
-
-// 設定
-// const URL_BACKEND = "http://localhost:3001/status";
-
-// const INITIAL_START_DATE = "20191202_090230";
-// const INITIAL_START_DATE = moment("20191202_090230",'YYYYMMDD_HHmmss');
-
 
 
 class App extends Component {
@@ -49,7 +42,7 @@ class App extends Component {
   ////////////////////////
   testUpdateValve() {
     var time = this.state.time;
-    if (time%2==0){
+    if (time%2===0){
       this.setState({ valve_color: "green", valve_stroke: "black"})
     } else {
       this.setState({ valve_color: "red", valve_stroke: "none"})
@@ -147,6 +140,7 @@ class App extends Component {
         <div className="App-body">
           <p>Time increment: {this.state.time}</p>
           <p>current_time increment: {this.state.current_time} </p>
+          <p> Switch status from json-server: {this.state.switch1 ? "ON" : "OFF"}</p>
 
           <h2> CMDテスト </h2>
           <p>バックエンドURL: {config.URL_BACKEND} </p>
@@ -154,7 +148,6 @@ class App extends Component {
 
           <div className="Test-body">
             <TlmDisplayArea tlm_data_array = {this.state.tlm_data_array} current_time= {this.state.current_time} />
-            <p> Switch status from json-server: {this.state.switch1 ? "ON" : "OFF"}</p>
           </div>
 
 

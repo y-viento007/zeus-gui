@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import TlmGraph from './TlmGraph.js';
-
+import './TlmDisplay.css';
 import config from 'AppConfig';
-
-// 設定
-// const URL_BACKEND = "http://localhost:3001/status";
 
 // TLMを表示するBOX
 // tlm_dataの情報からデータをリクエスト -> 別で行った方が良い？
@@ -52,14 +49,14 @@ class TlmDisplay extends Component {
 
   render() {
     // console.log(this.state.data);
-    if (this.props.tlm_data.display_type === "graph"){
+    if (this.props.tlm_data.display_setting.type === "graph"){
       return (
         <div className="TlmDisplay">
           <p> {this.props.name} </p>
           <TlmGraph data= {this.state.data} x_key="time" y_key="value" />
         </div>
       );
-    } else if (this.props.tlm_data.display_type === "value"){
+    } else if (this.props.tlm_data.display_setting.type === "value"){
       return (
         <div className="TlmDisplay">
           <p> {this.props.tlm_data.name} : {this.state.data.value} (Time: {this.state.data.time}) </p>
@@ -74,6 +71,7 @@ class TlmDisplay extends Component {
 
 // TLMを表示するエリア
 // props.tlm_data_array の配列の要素数だけTlmDisplayを作成
+// display_setting.windowに従ってテレメをまとめる
 class TlmDisplayArea extends Component {
 
  //  constructor(props) {
@@ -103,6 +101,18 @@ class TlmDisplayArea extends Component {
         {/*  要素数だけTlmDisplayを作成 */}
         {tlm_data_array.map((tlm_data) =>
           <TlmDisplay key={tlm_data.ID} tlm_data={tlm_data} current_time={current_time} />
+        )}
+
+        <h2> windowに振り分ける </h2>
+        {/*  windowに振り分ける */}
+        {config.TLM_WINDOW_TYPE.map((window_type) =>
+          <div className={window_type} key={window_type}>
+          {tlm_data_array.map((tlm_data) => {
+            if(tlm_data.display_setting.window===window_type){
+              return <TlmDisplay key={tlm_data.ID} tlm_data={tlm_data} current_time={current_time} />
+            }else{return null}}
+          )} 
+          </div>
         )}
       </div>
     );

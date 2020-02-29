@@ -4,8 +4,10 @@
   src: url('./space age.ttf');
 } /* ソース：https://www.dafont.com/space-age.font?text=AQT-I&back=theme */
 
+
 .App {
   text-align: center;
+  width: 1640px;
 }
 
 /*.App-logo {
@@ -19,7 +21,7 @@
   flex-direction: column;
   align-items: left;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(15px + 2vmin);
   color: white;
 
   font-family: 'SpaceFont';
@@ -27,17 +29,26 @@
   font-weight: normal;
 }
 
+.App-title{
+  width: 1600px;
+  height: auto;
+  margin: auto;
+}
+
 .App-body {
   background-color: #FFFFFF;
   min-height: 100vh;
+
+  font-size: 15px;
 }
 
 .Test-body{
-  width: 40%;
+  width: 1600px;
   height: auto;
+  margin: auto;
 }
 
-.Image-SystemDiagram{
+.Image-SystemDiagram{  
   background-color: transparent;
   width: 90%;
   height: auto;

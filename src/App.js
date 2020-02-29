@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // import SystemDiagram from '-!react-svg-loader!./image/SystemDiagram/SystemDiagram.svg'; // -!は必須
 import './App.css';
 
-import TlmDisplayArea from './TlmDisplay.js';
+import DisplayArea from './DisplayArea.js';
 
 import config from 'AppConfig';
 
@@ -134,10 +134,14 @@ class App extends Component {
       <div>
 
         <div className="App-header">
-          <p>ZEUS GUI</p>
+          <p className="App-title">ZEUS GUI</p>
         </div>
 
         <div className="App-body">
+          <div className="Test-body">
+            <DisplayArea tlm_data_array = {this.state.tlm_data_array} current_time= {this.state.current_time} />
+          </div>
+
           <p>Time increment: {this.state.time}</p>
           <p>current_time increment: {this.state.current_time} </p>
           <p> Switch status from json-server: {this.state.switch1 ? "ON" : "OFF"}</p>
@@ -146,9 +150,7 @@ class App extends Component {
           <p>バックエンドURL: {config.URL_BACKEND} </p>
           <button onClick={this.testSendCmd}>CMDテスト</button>
 
-          <div className="Test-body">
-            <TlmDisplayArea tlm_data_array = {this.state.tlm_data_array} current_time= {this.state.current_time} />
-          </div>
+          
 
 
           {/* import svg */}

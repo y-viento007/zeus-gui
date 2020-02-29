@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './TlmGraph.css';
 
-import {VictoryChart,VictoryTheme,VictoryLine} from 'victory';
+import {VictoryChart,VictoryTheme,VictoryLine,VictoryAxis} from 'victory';
 
 
 class TlmGraph extends Component {
@@ -24,11 +24,27 @@ class TlmGraph extends Component {
         <div className="TlmGraph-body">
           <VictoryChart
             theme={VictoryTheme.material}
-            width={450} height={200}
+            width={320} height={160}
+            padding={{top: 10, bottom: 50, left: 50, right: 30}}
           >
+            <VictoryAxis
+              label="Time"
+              style={{
+                axisLabel: {fontSize: 12, padding: 30}, 
+                tickLabels: { fontSize: 12 },
+              }}
+              tickFormat={(t) => `${t}`.slice(9,11)+`:`+`${t}`.slice(11,13)+`:`+`${t}`.slice(13,15)}
+              tickCount={4}
+              // tickFormat={(t) => `${t}`+`:`+`${t}`+`:`+`${t}`}
+            />
+            <VictoryAxis dependentAxis
+              style={{ tickLabels: {
+                  fontSize: 12
+                }}}
+            />
             <VictoryLine 
               standalone={false}
-              
+
               data={this.props.data}
               x={this.props.x_key}
               y={this.props.y_key} 
@@ -38,6 +54,5 @@ class TlmGraph extends Component {
     );
 	}
 }
-
 
 export default TlmGraph;

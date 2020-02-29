@@ -1,0 +1,254 @@
+[
+  {
+    "ID": "﻿1",
+    "name": "hoge_voltage1",
+    "display_name": "hoge [V]",
+    "display_type": "graph",
+    "display_window": "graph-1",
+    "time_range": "3",
+    "time_delta": "1"
+  },
+  {
+    "ID": "2",
+    "name": "hoge_voltage2",
+    "display_name": "hoge [V]",
+    "display_type": "graph",
+    "display_window": "graph-1",
+    "time_range": "3",
+    "time_delta": "1"
+  },
+  {
+    "ID": "3",
+    "name": "hoge_voltage3",
+    "display_name": "hoge [V]",
+    "display_type": "graph",
+    "display_window": "graph-1",
+    "time_range": "3",
+    "time_delta": "1"
+  },
+  {
+    "ID": "4",
+    "name": "hoge_voltage4",
+    "display_name": "hoge [V]",
+    "display_type": "graph",
+    "display_window": "graph-1",
+    "time_range": "3",
+    "time_delta": "1"
+  },
+  {
+    "ID": "5",
+    "name": "hoge_voltage5",
+    "display_name": "hoge [V]",
+    "display_type": "graph",
+    "display_window": "graph-1",
+    "time_range": "3",
+    "time_delta": "1"
+  },
+  {
+    "ID": "6",
+    "name": "hoge_voltage6",
+    "display_name": "hoge [V]",
+    "display_type": "graph",
+    "display_window": "graph-1",
+    "time_range": "3",
+    "time_delta": "1"
+  },
+  {
+    "ID": "7",
+    "name": "hoge_voltage7",
+    "display_name": "hoge [V]",
+    "display_type": "graph",
+    "display_window": "graph-1",
+    "time_range": "3",
+    "time_delta": "1"
+  },
+  {
+    "ID": "8",
+    "name": "hoge_voltage8",
+    "display_name": "hoge [V]",
+    "display_type": "graph",
+    "display_window": "graph-1",
+    "time_range": "3",
+    "time_delta": "1"
+  },
+  {
+    "ID": "9",
+    "name": "hoge_voltage9",
+    "display_name": "hoge [V]",
+    "display_type": "graph",
+    "display_window": "graph-1",
+    "time_range": "3",
+    "time_delta": "1"
+  },
+  {
+    "ID": "10",
+    "name": "hoge_voltage10",
+    "display_name": "hoge [V]",
+    "display_type": "graph",
+    "display_window": "graph-1",
+    "time_range": "3",
+    "time_delta": "1"
+  },
+  {
+    "ID": "11",
+    "name": "hoge-valve1",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-1",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "12",
+    "name": "hoge-valve2",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-1",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "13",
+    "name": "hoge-valve3",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-1",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "14",
+    "name": "hoge-valve4",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-1",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "15",
+    "name": "hoge-valve5",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-2",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "16",
+    "name": "hoge-valve6",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-2",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "17",
+    "name": "hoge-valve7",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-2",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "18",
+    "name": "hoge-valve8",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-2",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "19",
+    "name": "hoge-valve9",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-3",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "20",
+    "name": "hoge-valve10",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-3",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "21",
+    "name": "hoge-valve11",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-3",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "22",
+    "name": "hoge-valve12",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-3",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "23",
+    "name": "hoge-valve13",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-4",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "24",
+    "name": "hoge-valve14",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-4",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "25",
+    "name": "hoge-valve15",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-4",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "26",
+    "name": "hoge-valve16",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-4",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "27",
+    "name": "hoge-valve17",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-4",
+    "time_range": "0",
+    "time_delta": "null"
+  },
+  {
+    "ID": "28",
+    "name": "hoge-valve18",
+    "display_name": "hoge",
+    "display_type": "value",
+    "display_window": "value-4",
+    "time_range": "0",
+    "time_delta": "null"
+  }
+]

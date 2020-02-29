@@ -1,0 +1,9 @@
+split("\r\n")|map(split(","))|
+   map({"ID":.[0],
+        "name":.[1],
+        "display_name":.[2],
+        "display_type":.[3],
+        "display_window":.[4],
+        "time_range":.[5],
+        "time_delta":.[6]
+})

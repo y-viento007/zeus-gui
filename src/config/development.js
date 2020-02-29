@@ -7,63 +7,44 @@
 
 import moment from 'moment'
 
+// 下記のコマンドをshなどで実行してjsonを作成する
+// jq -R -s -f form.jq tlm.csv > tlm_data_array.json
+var tlm_data_array = require('./tlm_data_array.json');
+
+
 export default {
     URL_BACKEND: "http://localhost:3001/status",
     INITIAL_START_DATE : moment("20191202_090230",'YYYYMMDD_HHmmss'),
 
-    TLM_WINDOW_TYPE : ["value-1","graph-1"],
-
-    TLM_DATA_ARRAY : [ 
-          { 
+    TLM_WINDOW_DATA_ARRAY : [
+          {
             ID: 1,
-            name : "hoge_voltage",
-
-            display_setting: {
-              type : "graph",
-              window : "graph-1",
-            },
-            time_range : 3,
-            time_delta : 1,
-
-            // time:[], value:[]ではなく{time:,value:},{time:,value:}...としたい
-            // time : ["20191202_090200","20191202_090201","20191202_090202"], 
-            test_data : [
-                {time:"20191202_090200", value:5.0},
-                {time:"20191202_090201", value:4.9},
-                {time:"20191202_090202", value:5.2},
-              ], // テストデータ
+            name: "graph-1",
+            type: "graph"
           },
-          { 
+          {
             ID: 2,
-            name : "hoge-valve",
-
-            display_setting: {
-              type : "value",
-              window : "value-1",
-            },
-
-            time_range : 0,
-            time_delta : null,
-
-            test_time : "20191202_090200",
-            test_value : "Close", // テストデータ
+            name: "value-1",
+            type: "value"
           },
-          { 
+          {
             ID: 3,
-            name : "hoge-heater-onoff-valve",
-            
-            display_setting: {
-              type : "value",
-              window : "value-1",
-            },
-
-            time_range : 0,
-            time_delta : null,
-
-            test_time : "20191202_090200",
-            test_value : "ON",// テストデータ
+            name: "value-2",
+            type: "value"
           },
-      ],
+          {
+            ID: 4,
+            name: "value-3",
+            type: "value"
+          },
+          {
+            ID: 5,
+            name: "value-4",
+            type: "value"
+          }
+        ],
+
+    TLM_DATA_ARRAY : tlm_data_array,
 
     CMD_DATA : {
 	      revision : 1,

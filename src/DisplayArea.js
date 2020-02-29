@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import TlmGraph from './TlmGraph.js';
-import './TlmDisplay.css';
+import './DisplayArea.css';
 import config from 'AppConfig';
 
 // TLMを表示するBOX
 // tlm_dataの情報からデータをリクエスト -> 別で行った方が良い？
 // tlm_data.display_typeに従って表示形式設定
-class TlmDisplay extends Component {
+class TlmContent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [{time:0, value:0},{time:1, value:1}],
+      date: "2019/10/12"
     }
     this.requestTlmData = this.requestTlmData.bind(this);
   }
@@ -49,17 +50,17 @@ class TlmDisplay extends Component {
 
   render() {
     // console.log(this.state.data);
-    if (this.props.tlm_data.display_setting.type === "graph"){
+    if (this.props.tlm_data.display_type === "graph"){
       return (
-        <div className="TlmDisplay">
-          <p> {this.props.name} </p>
+        <div className="TlmContent-Graph">
+          <p style={{padding:0, margin:0}}> {this.props.tlm_data.display_name} </p>
           <TlmGraph data= {this.state.data} x_key="time" y_key="value" />
         </div>
       );
-    } else if (this.props.tlm_data.display_setting.type === "value"){
+    } else if (this.props.tlm_data.display_type === "value"){
       return (
-        <div className="TlmDisplay">
-          <p> {this.props.tlm_data.name} : {this.state.data.value} (Time: {this.state.data.time}) </p>
+        <div className="TlmContent-Value">
+          <p> {this.props.tlm_data.display_name} : {this.state.data.value} (Time: {this.state.data.time}) </p>
         </div>
       );
     } else {
@@ -69,10 +70,10 @@ class TlmDisplay extends Component {
   }
 }
 
-// TLMを表示するエリア
+// TLM・CMDを表示するエリア
 // props.tlm_data_array の配列の要素数だけTlmDisplayを作成
-// display_setting.windowに従ってテレメをまとめる
-class TlmDisplayArea extends Component {
+// display_windowに従ってテレメをまとめる
+class DisplayArea extends Component {
 
  //  constructor(props) {
  //    super(props);
@@ -83,41 +84,39 @@ class TlmDisplayArea extends Component {
   render() {
     const tlm_data_array = this.props.tlm_data_array;
     const current_time = this.props.current_time;
-    const test_tlm_data0 = tlm_data_array[0];
-    const test_tlm_data1 = tlm_data_array[1];
-    const test_tlm_data2 = tlm_data_array[2];
-
 
     return (
-      <div className="TlmDisplayArea">
+      <div>
+        <div className="DisplayArea">
+          {/*  windowに振り分ける */}
+          {config.TLM_WINDOW_DATA_ARRAY.map((window_data) =>
+            <div className={"Window"} key={window_data.name}>
+              <div className={window_data.type}>
+              {tlm_data_array.map((tlm_data) => {
+                if(tlm_data.display_window===window_data.name){
+                  return <TlmContent key={tlm_data.name} tlm_data={tlm_data} current_time={current_time} />
+                }else{return null}}
+              )} 
+              </div>
+            </div>
+          )}
+        </div>
 
-        <h2> ソースコードベタ打ちtestデータの表示確認 </h2>
-        <TlmGraph data={test_tlm_data0.test_data} x_key="time" y_key="value" />
-        <p> {test_tlm_data1.name} : {test_tlm_data1.test_value} (Time: {test_tlm_data1.test_time}) </p>
-        <p> {test_tlm_data2.name} : {test_tlm_data2.test_value} (Time: {test_tlm_data2.test_time}) </p>
+        <hr size="3"></hr>
 
         <h2> POSTして受け取ったデータの表示確認(TlmDisplayを使用) </h2>
         <p>バックエンドURL: {config.URL_BACKEND} </p>
         {/*  要素数だけTlmDisplayを作成 */}
         {tlm_data_array.map((tlm_data) =>
-          <TlmDisplay key={tlm_data.ID} tlm_data={tlm_data} current_time={current_time} />
+          <TlmContent key={"displaytest-"+tlm_data.ID} tlm_data={tlm_data} current_time={current_time} />
         )}
 
         <h2> windowに振り分ける </h2>
-        {/*  windowに振り分ける */}
-        {config.TLM_WINDOW_TYPE.map((window_type) =>
-          <div className={window_type} key={window_type}>
-          {tlm_data_array.map((tlm_data) => {
-            if(tlm_data.display_setting.window===window_type){
-              return <TlmDisplay key={tlm_data.ID} tlm_data={tlm_data} current_time={current_time} />
-            }else{return null}}
-          )} 
-          </div>
-        )}
+        
       </div>
     );
   }
 
 }
 
-export default TlmDisplayArea;
+export default DisplayArea;

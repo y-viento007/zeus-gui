@@ -59,6 +59,14 @@
   height: auto;
 }
 
+.valve0{
+  fill: green;
+}
+
+.valve1{
+  fill: red;
+}
+
 /*.App-link {
   color: #09d3ac;
 }*/

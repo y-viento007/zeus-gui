@@ -49,7 +49,7 @@
     "name": "hoge_voltage6",
     "display_name": "hoge [V]",
     "display_type": "graph",
-    "display_window": "graph-1",
+    "display_window": "graph-2",
     "time_range": "3",
     "time_delta": "1"
   },
@@ -58,7 +58,7 @@
     "name": "hoge_voltage7",
     "display_name": "hoge [V]",
     "display_type": "graph",
-    "display_window": "graph-1",
+    "display_window": "graph-2",
     "time_range": "3",
     "time_delta": "1"
   },
@@ -67,7 +67,7 @@
     "name": "hoge_voltage8",
     "display_name": "hoge [V]",
     "display_type": "graph",
-    "display_window": "graph-1",
+    "display_window": "graph-2",
     "time_range": "3",
     "time_delta": "1"
   },
@@ -76,7 +76,7 @@
     "name": "hoge_voltage9",
     "display_name": "hoge [V]",
     "display_type": "graph",
-    "display_window": "graph-1",
+    "display_window": "graph-2",
     "time_range": "3",
     "time_delta": "1"
   },
@@ -85,7 +85,7 @@
     "name": "hoge_voltage10",
     "display_name": "hoge [V]",
     "display_type": "graph",
-    "display_window": "graph-1",
+    "display_window": "graph-2",
     "time_range": "3",
     "time_delta": "1"
   },

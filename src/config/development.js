@@ -16,33 +16,49 @@ export default {
     URL_BACKEND: "http://localhost:3001/status",
     INITIAL_START_DATE : moment("20191202_090230",'YYYYMMDD_HHmmss'),
 
+    TLM_COLUMN_ARRAY : [
+        "value",
+        "graph"
+      ],
+
     TLM_WINDOW_DATA_ARRAY : [
-          {
-            ID: 1,
-            name: "graph-1",
-            type: "graph"
-          },
-          {
-            ID: 2,
-            name: "value-1",
-            type: "value"
-          },
-          {
-            ID: 3,
-            name: "value-2",
-            type: "value"
-          },
-          {
-            ID: 4,
-            name: "value-3",
-            type: "value"
-          },
-          {
-            ID: 5,
-            name: "value-4",
-            type: "value"
-          }
-        ],
+        {
+          ID: 1,
+          name: "graph-1",
+          type: "graph",
+          column: "graph"
+        },
+        {
+          ID: 2,
+          name: "value-1",
+          type: "value",
+          column: "value"
+        },
+        {
+          ID: 3,
+          name: "value-2",
+          type: "value",
+          column: "value"
+        },
+        {
+          ID: 4,
+          name: "value-3",
+          type: "value",
+          column: "value"
+        },
+        {
+          ID: 5,
+          name: "value-4",
+          type: "value",
+          column: "value"
+        },
+        {
+          ID: 6,
+          name: "graph-2",
+          type: "graph",
+          column: "graph"
+        }
+      ],
 
     TLM_DATA_ARRAY : tlm_data_array,
 

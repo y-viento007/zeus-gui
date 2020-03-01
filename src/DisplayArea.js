@@ -60,7 +60,7 @@ class TlmContent extends Component {
     } else if (this.props.tlm_data.display_type === "value"){
       return (
         <div className="TlmContent-Value">
-          <p> {this.props.tlm_data.display_name} : {this.state.data.value} (Time: {this.state.data.time}) </p>
+          <p style={{padding:0, margin:0}}> {this.props.tlm_data.display_name} : {this.state.data.value} (Time: {this.state.data.time}) </p>
         </div>
       );
     } else {
@@ -88,35 +88,42 @@ class DisplayArea extends Component {
     return (
       <div>
         <div className="DisplayArea">
-          {/*  windowに振り分ける */}
-          {config.TLM_WINDOW_DATA_ARRAY.map((window_data) =>
-            <div className={"Window"} key={window_data.name}>
-              <div className={window_data.type}>
-              {tlm_data_array.map((tlm_data) => {
-                if(tlm_data.display_window===window_data.name){
-                  return <TlmContent key={tlm_data.name} tlm_data={tlm_data} current_time={current_time} />
-                }else{return null}}
-              )} 
-              </div>
+          
+          {config.TLM_COLUMN_ARRAY.map((column) =>
+            <div className="Column" key={column} id={column}>
+              {/*  windowに振り分ける */}
+              {config.TLM_WINDOW_DATA_ARRAY.map((window_data) =>{
+                if(column===window_data.column){
+                  return (
+                    <div className={"Window"} key={window_data.name} id={window_data.name}>
+                      {tlm_data_array.map((tlm_data) => {
+                        if(tlm_data.display_window===window_data.name){
+                          return <TlmContent key={tlm_data.name} tlm_data={tlm_data} current_time={current_time} />
+                        }else{return null}}
+                      )} 
+                    </div>
+                  )
+                }}
+              )}
             </div>
           )}
         </div>
 
         <hr size="3"></hr>
 
-        <h2> POSTして受け取ったデータの表示確認(TlmDisplayを使用) </h2>
+        <h2> POSTして受け取ったデータの表示確認(TlmContentを使用) </h2>
         <p>バックエンドURL: {config.URL_BACKEND} </p>
         {/*  要素数だけTlmDisplayを作成 */}
         {tlm_data_array.map((tlm_data) =>
           <TlmContent key={"displaytest-"+tlm_data.ID} tlm_data={tlm_data} current_time={current_time} />
         )}
 
-        <h2> windowに振り分ける </h2>
-        
       </div>
     );
   }
 
 }
+
+
 
 export default DisplayArea;

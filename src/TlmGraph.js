@@ -24,7 +24,7 @@ class TlmGraph extends Component {
         <div className="TlmGraph-body">
           <VictoryChart
             theme={VictoryTheme.material}
-            width={320} height={160}
+            width={288} height={144}
             padding={{top: 10, bottom: 50, left: 50, right: 30}}
           >
             <VictoryAxis

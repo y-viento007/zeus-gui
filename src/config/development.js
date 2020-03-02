@@ -14,7 +14,8 @@ var tlm_data_array = require('./tlm_data_array.json');
 
 export default {
     URL_BACKEND: "http://localhost:3001/status",
-    INITIAL_START_DATE : moment("20191202_090230",'YYYYMMDD_HHmmss'),
+    // INITIAL_START_DATE : moment("20191202_090230",'YYYYMMDD_HHmmss'),
+    INITIAL_START_DATE : moment(),
 
     TLM_COLUMN_ARRAY : [
         "diagram",
@@ -39,7 +40,7 @@ export default {
           ID: 2,
           name: "value_1",
           type: "value",
-          column: "value"
+          column: "diagram"
         },
         {
           ID: 3,
@@ -73,7 +74,7 @@ export default {
     TLM_DIAGRAM_DATA_ARRAY : [
         {
           "ID": "0",
-          "name": "hoge_valve0"
+          "name": "valve_open_close02_"
         },
       ],
 

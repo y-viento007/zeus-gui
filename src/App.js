@@ -15,7 +15,7 @@ class App extends Component {
     super(props);
   　
     this.state = {
-      current_time: config.INITIAL_START_DATE.format("YYYYMMDD_HHMMSS"),       // TLM表示したい最初の時刻
+      current_time: config.INITIAL_START_DATE.format("YYYY-MM-DD HH:MM:SS"),       // TLM表示したい最初の時刻
       initial_start_date: config.INITIAL_START_DATE,
       gui_start_date: moment(),  // GUIを開始した時刻（GUI内基準時刻）
       tlm_data_array: config.TLM_DATA_ARRAY,

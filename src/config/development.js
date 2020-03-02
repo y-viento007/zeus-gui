@@ -31,37 +31,37 @@ export default {
         },
         {
           ID: 1,
-          name: "graph-1",
+          name: "graph_1",
           type: "graph",
           column: "graph"
         },
         {
           ID: 2,
-          name: "value-1",
+          name: "value_1",
           type: "value",
           column: "value"
         },
         {
           ID: 3,
-          name: "value-2",
+          name: "value_2",
           type: "value",
           column: "value"
         },
         {
           ID: 4,
-          name: "value-3",
+          name: "value_3",
           type: "value",
           column: "value"
         },
         {
           ID: 5,
-          name: "value-4",
+          name: "value_4",
           type: "value",
           column: "value"
         },
         {
           ID: 6,
-          name: "graph-2",
+          name: "graph_2",
           type: "graph",
           column: "graph"
         }

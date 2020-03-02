@@ -45,16 +45,16 @@
     flex-basis: 50%;
 }*/
 
-.Column > #value-1{
+.Column > #value_1{
     flex-basis: 100%;
 }
-.Column > #value-2{
+.Column > #value_2{
     flex-basis: 100%;
 }
-.Column > #value-3{
+.Column > #value_3{
     flex-basis: 100%;
 }
-.Column > #value-4{
+.Column > #value_4{
     flex-basis: 100%;
 }
 

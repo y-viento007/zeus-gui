@@ -21,6 +21,9 @@
     width: 20%;
 }
 
+.DisplayArea > #diagram{
+    width: 40%;
+}
 
 
 .Window{

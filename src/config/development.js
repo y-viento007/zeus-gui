@@ -17,11 +17,18 @@ export default {
     INITIAL_START_DATE : moment("20191202_090230",'YYYYMMDD_HHmmss'),
 
     TLM_COLUMN_ARRAY : [
+        "diagram",
         "value",
         "graph"
       ],
 
     TLM_WINDOW_DATA_ARRAY : [
+        {
+          ID: 0,
+          name: "diagram",
+          type: "diagram",
+          column: "diagram"
+        },
         {
           ID: 1,
           name: "graph-1",
@@ -61,6 +68,14 @@ export default {
       ],
 
     TLM_DATA_ARRAY : tlm_data_array,
+
+    // DiagramのTLM項目は変わることが少ないはずなので、ベタ打ちで設定する
+    TLM_DIAGRAM_DATA_ARRAY : [
+        {
+          "ID": "0",
+          "name": "hoge_valve0"
+        },
+      ],
 
     CMD_DATA : {
 	      revision : 1,

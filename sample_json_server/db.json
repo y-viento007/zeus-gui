@@ -3,7 +3,7 @@
     "ID": 1,
     "name": "hoge_voltage",
     "current_time": "20191202_090230",
-    "sw1": "OFF",
+    "data1": "Open",
     "data":
       [
       {

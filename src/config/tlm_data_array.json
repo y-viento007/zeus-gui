@@ -250,5 +250,14 @@
     "display_window": "value-4",
     "time_range": "0",
     "time_delta": "null"
+  },
+  {
+    "ID": "29",
+    "name": "diagram",
+    "display_name": "null",
+    "display_type": "diagram",
+    "display_window": "diagram",
+    "time_range": "null",
+    "time_delta": "null"
   }
 ]

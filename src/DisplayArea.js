@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TlmGraph from './TlmGraph.js';
+import TlmDiagram from './TlmDiagram.js';
 import './DisplayArea.css';
 import config from 'AppConfig';
 
@@ -20,8 +21,8 @@ class TlmContent extends Component {
     const json_body = {
       ID: this.props.tlm_data.ID,
       name : this.props.tlm_data.name,
-      time_range : this.props.time_range,
-      time_delta : this.props.time_delta,
+      time_range : this.props.tlm_data.time_range,
+      time_delta : this.props.tlm_data.time_delta,
       current_time : this.props.current_time,
       type : "TLM",
       revision : 1,
@@ -91,14 +92,19 @@ class DisplayArea extends Component {
           
           {config.TLM_COLUMN_ARRAY.map((column) =>
             <div className="Column" key={column} id={column}>
-              {/*  windowに振り分ける */}
+              {/*  windowをcolumnに振り分ける */}
               {config.TLM_WINDOW_DATA_ARRAY.map((window_data) =>{
                 if(column===window_data.column){
                   return (
                     <div className={"Window"} key={window_data.name} id={window_data.name}>
+                      {/*  TlmContentをwindowに振り分ける */}
                       {tlm_data_array.map((tlm_data) => {
                         if(tlm_data.display_window===window_data.name){
-                          return <TlmContent key={tlm_data.name} tlm_data={tlm_data} current_time={current_time} />
+                          if(tlm_data.display_type==="diagram"){
+                            return <TlmDiagram key={tlm_data.name} tlm_data_array={config.TLM_DIAGRAM_DATA_ARRAY} current_time={current_time}/>
+                          }else{
+                            return <TlmContent key={tlm_data.name} tlm_data={tlm_data} current_time={current_time} />
+                          }
                         }else{return null}}
                       )} 
                     </div>

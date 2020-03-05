@@ -30,9 +30,9 @@ class TlmDiagram extends Component {
     }).then(res => res.json())
       .then(
         (result) => {
-          if (result.data===1){
+          if (result.data===true){
             this.setState({ [tlm_data.name]: "Valve-Open"  });
-          } else if (result.data===0) {
+          } else if (result.data===false) {
             this.setState({ [tlm_data.name]: "Valve-Close" });
           }
         },

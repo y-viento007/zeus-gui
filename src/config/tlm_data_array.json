@@ -1,7 +1,7 @@
 [
   {
     "ID": "﻿1",
-    "name": "temperature01_",
+    "name": "temperature01",
     "display_name": "hoge [degC]",
     "display_type": "graph",
     "display_window": "graph_1",
@@ -10,7 +10,7 @@
   },
   {
     "ID": "2",
-    "name": "temperature02_",
+    "name": "temperature02",
     "display_name": "hoge [degC]",
     "display_type": "graph",
     "display_window": "graph_1",
@@ -19,7 +19,7 @@
   },
   {
     "ID": "3",
-    "name": "temperature03_",
+    "name": "temperature03",
     "display_name": "hoge [degC]",
     "display_type": "graph",
     "display_window": "graph_1",
@@ -28,7 +28,7 @@
   },
   {
     "ID": "4",
-    "name": "temperature04_",
+    "name": "temperature04",
     "display_name": "hoge [degC]",
     "display_type": "graph",
     "display_window": "graph_1",
@@ -37,7 +37,7 @@
   },
   {
     "ID": "5",
-    "name": "temperature05_",
+    "name": "temperature05",
     "display_name": "hoge [degC]",
     "display_type": "graph",
     "display_window": "graph_1",
@@ -46,7 +46,7 @@
   },
   {
     "ID": "6",
-    "name": "temperature06_",
+    "name": "temperature06",
     "display_name": "hoge [degC]",
     "display_type": "graph",
     "display_window": "graph_2",
@@ -55,7 +55,7 @@
   },
   {
     "ID": "7",
-    "name": "temperature07_",
+    "name": "temperature07",
     "display_name": "hoge [degC]",
     "display_type": "graph",
     "display_window": "graph_2",
@@ -64,7 +64,7 @@
   },
   {
     "ID": "8",
-    "name": "temperature08_",
+    "name": "temperature08",
     "display_name": "hoge [degC]",
     "display_type": "graph",
     "display_window": "graph_2",
@@ -73,7 +73,7 @@
   },
   {
     "ID": "9",
-    "name": "temperature09_",
+    "name": "temperature09",
     "display_name": "hoge [degC]",
     "display_type": "graph",
     "display_window": "graph_2",
@@ -82,7 +82,7 @@
   },
   {
     "ID": "10",
-    "name": "temperature10_",
+    "name": "temperature10",
     "display_name": "hoge [degC]",
     "display_type": "graph",
     "display_window": "graph_2",
@@ -91,7 +91,7 @@
   },
   {
     "ID": "11",
-    "name": "valve_open_close01_",
+    "name": "valve_open_close01",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_1",
@@ -100,7 +100,7 @@
   },
   {
     "ID": "12",
-    "name": "valve_open_close02_",
+    "name": "valve_open_close02",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_1",
@@ -109,7 +109,7 @@
   },
   {
     "ID": "13",
-    "name": "valve_open_close03_",
+    "name": "valve_open_close03",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_1",
@@ -118,7 +118,7 @@
   },
   {
     "ID": "14",
-    "name": "valve_open_close04_",
+    "name": "valve_open_close04",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_1",
@@ -127,7 +127,7 @@
   },
   {
     "ID": "15",
-    "name": "valve_open_close05_",
+    "name": "valve_open_close05",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_2",
@@ -136,7 +136,7 @@
   },
   {
     "ID": "16",
-    "name": "valve_open_close06_",
+    "name": "valve_open_close06",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_2",
@@ -145,7 +145,7 @@
   },
   {
     "ID": "17",
-    "name": "valve_open_close07_",
+    "name": "valve_open_close07",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_2",
@@ -154,7 +154,7 @@
   },
   {
     "ID": "18",
-    "name": "valve_open_close08_",
+    "name": "valve_open_close08",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_2",
@@ -163,7 +163,7 @@
   },
   {
     "ID": "19",
-    "name": "valve_open_close09_",
+    "name": "valve_open_close09",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_3",
@@ -172,7 +172,7 @@
   },
   {
     "ID": "20",
-    "name": "valve_open_close10_",
+    "name": "valve_open_close10",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_3",
@@ -181,7 +181,7 @@
   },
   {
     "ID": "21",
-    "name": "valve_open_close11_",
+    "name": "valve_open_close11",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_3",
@@ -190,7 +190,7 @@
   },
   {
     "ID": "22",
-    "name": "valve_open_close12_",
+    "name": "valve_open_close12",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_3",
@@ -199,7 +199,7 @@
   },
   {
     "ID": "23",
-    "name": "valve_open_close13_",
+    "name": "valve_open_close13",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_4",
@@ -208,7 +208,7 @@
   },
   {
     "ID": "24",
-    "name": "heater_on_off01_",
+    "name": "heater_on_off01",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_4",
@@ -217,7 +217,7 @@
   },
   {
     "ID": "25",
-    "name": "heater_on_off02_",
+    "name": "heater_on_off02",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_4",
@@ -226,7 +226,7 @@
   },
   {
     "ID": "26",
-    "name": "heater_on_off03_",
+    "name": "heater_on_off03",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_4",
@@ -235,7 +235,7 @@
   },
   {
     "ID": "27",
-    "name": "heater_on_off04_",
+    "name": "heater_on_off04",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_4",
@@ -244,7 +244,7 @@
   },
   {
     "ID": "28",
-    "name": "heater_on_off05_",
+    "name": "heater_on_off05",
     "display_name": "hoge",
     "display_type": "value",
     "display_window": "value_4",

@@ -74,7 +74,7 @@ export default {
     TLM_DIAGRAM_DATA_ARRAY : [
         {
           "ID": "0",
-          "name": "valve_open_close02_"
+          "name": "valve_open_close02"
         },
       ],
 

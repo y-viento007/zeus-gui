@@ -64,7 +64,7 @@ class TlmDiagram extends Component {
                 </clipPath>
               </defs>
               <g clipPath="url(#a)">
-                <path className={this.state.valve_open_close02_} d="M432 446l-50 44.5v-89zm0 0l50-44.5v89z"></path>
+                <path className={this.state.valve_open_close02} d="M432 446l-50 44.5v-89zm0 0l50-44.5v89z"></path>
                 <circle vectorEffect="non-scaling-stroke" cx="244.5" cy="248.5" r="112.5" fill="#D0F1FD" stroke="#000" strokeLinecap="square" strokeMiterlimit="3"></circle>
                 <path d="M244.5 361v85m0 0H382" fill="none" vectorEffect="non-scaling-stroke" stroke="#000" strokeLinecap="square" strokeMiterlimit="3"></path>
                 <g stroke="#000" strokeLinecap="square" strokeMiterlimit="3">

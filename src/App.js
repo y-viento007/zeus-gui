@@ -98,14 +98,14 @@ class App extends Component {
     var now_time = this.state.time + 1;
     this.setState({ time: now_time });
 
-    // current_timeの更新 (形式："20191202_090230")
+    // current_timeの更新 (形式："2019-12-02 09:02:30")
     // initial_start_dateからインクリメントする
     var current_date = moment(this.state.initial_start_date.format())　// jsでのオブジェクトの値渡しは初期化しかなさそう
     current_date.add(
       moment().diff(this.state.gui_start_date) , "ms" 
     );                                                // addは元のmomentオブジェクト自体が変更されるっぽい
 
-    const current_time = current_date.format("YYYYMMDD_HHmmss");
+    const current_time = current_date.format("YYYY-MM-DD HH:mm:ss");
     // console.log(current_time);
 
     this.setState({ current_time: current_time }); 

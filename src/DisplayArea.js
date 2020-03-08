@@ -19,7 +19,6 @@ class TlmContent extends Component {
 
   requestTlmData(){
     const json_body = {
-      ID: this.props.tlm_data.ID,
       name : this.props.tlm_data.name,
       time_range : this.props.tlm_data.time_range,
       time_delta : this.props.tlm_data.time_delta,

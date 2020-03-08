@@ -1,19 +1,35 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 2019/10/27時点の使い方メモ
+## 準備
 - node.jsをインストール
-- `./sample_json_server`のディレクトリで`README.md`に従いjsonサーバーを起動する
-- `npm start`でreact appが起動するはず
-	- `npm install`が必要
+- ルートディレクトリで`npm install`が必要
 
-## 2020/02/13追記
-- `App.js`と`TlmDisplay.js` の上部にある`URL_BACKEND`をバックエンドURLのものに書き換えて使用する
-- 初期時刻は`App.js`上部の`CURRENT_DATE`で設定
-
-## 2020/02/15追記
+## 手順
 - `src/config`内ファイルで初期設定を行う
-	- `URL_BACKEND`もここに集約
-- `AppConfig`がないと言われたら`npm install`を再実行すると動くはず
+	- URL
+		- `URL_BACKEND` をバックエンドのURLにする
+	- 時刻
+		- 初期時刻は`INITIAL_START_DATE`で設定
+	- TLM表示項目の設定
+		- `TLM Content`と`TLM Diagram`が最小単位
+			- バックエンドに送るjson形式はどちらも同一
+		- `TLM Content`の設定
+			- `tlm.csv`で各`TLM Content`の表示設定
+			- `jq -R -s -f form.jq tlm.csv > tlm_data_array.json`によって`tlm_data_array.json`として読み込む
+		- `TLM Diagram`の設定
+			- key:`TLM_DIAGRAM_DATA_ARRAY` としてベタ打ちで表示設定
+- `npm start`でreact appが起動する
+	- `AppConfig`がないと言われたら`npm install`を再実行すると動く
+
+## 手順（フロントエンド単体）
+- json server
+	- json serverに対するPOSTに対してjsonを返す
+		- オーバーライドによって、POSTすると実際にはGETすることになる
+			- POST時に送るjsonは読み取られない
+		- TLM表示に必要な`data`をkeyとするデータを含む
+	- `./sample_json_server`のディレクトリで`README.md`に従いjsonサーバーを起動する
+- `src/config`内ファイルで初期設定を行う
+	- `URL_BACKEND` をsample_json_serverの`http://localhost:3001/status` にする
 
 
 ## Available Scripts

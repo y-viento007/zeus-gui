@@ -3,14 +3,14 @@ import config from 'AppConfig';
 import './TlmDiagram.css';
 
 class TlmDiagram extends Component {
-	constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
     };
     this.requestTlmData = this.requestTlmData.bind(this);
-	}
+  }
 
-	test(){return 0}
+  test(){return 0}
 
   requestTlmData(tlm_data){
     const json_body = {
@@ -30,9 +30,9 @@ class TlmDiagram extends Component {
     }).then(res => res.json())
       .then(
         (result) => {
-          if (result.data===true){
+          if (result.data[0].value===true){
             this.setState({ [tlm_data.name]: "Valve-Open"  });
-          } else if (result.data===false) {
+          } else if (result.data[0].value===false) {
             this.setState({ [tlm_data.name]: "Valve-Close" });
           }
         },
@@ -43,21 +43,21 @@ class TlmDiagram extends Component {
 
 
   componentDidMount() {
-  	this.timer_request_array = this.props.tlm_data_array.map((tlm_data) =>{
-  		return setInterval(this.requestTlmData, 1000, tlm_data)
-  	})
+    this.timer_request_array = this.props.tlm_data_array.map((tlm_data) =>{
+      return setInterval(this.requestTlmData, 1000, tlm_data)
+    })
   }
 
   componentWillUnmount() {
-  	this.timer_request_array.map((timer)=>{
-  		return clearInterval(timer);
-  	})
+    this.timer_request_array.map((timer)=>{
+      return clearInterval(timer);
+    })
   }
 
   render() {
     return (
         <div className="TlmDiagram">
-        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="800" className="Image-SystemDiagram" alt="SystemDiagram">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="800" className="Image-SystemDiagram" alt="SystemDiagram">
             <defs>
                 <clipPath id="a">
                   <path d="M0 0h800v1200H0z"></path>
@@ -77,7 +77,7 @@ class TlmDiagram extends Component {
             </svg>
         </div>
     );
-	}
+  }
 }
 
 export default TlmDiagram;

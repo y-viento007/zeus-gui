@@ -116,15 +116,15 @@ class App extends Component {
   // 定期実行する関数を設定
   // http://webdesign-dackel.com/2015/11/03/redux-periodic-action/
   componentDidMount() {
-    this.timer_testGetSwitchStatus = setInterval(this.testGetSwitchStatus, 1000);
-    this.timer_testUpdateValve = setInterval(this.testUpdateValve, 1000);
+    // this.timer_testGetSwitchStatus = setInterval(this.testGetSwitchStatus, 1000);
+    // this.timer_testUpdateValve = setInterval(this.testUpdateValve, 1000);
 
     this.timer_tickT = setInterval(this.tickT, 1000);
     this.timer_getTlm = setInterval(this.getTlm, 1000);
   }
   componentWillUnmount() {
-    clearInterval(this.timer_testGetSwitchStatus);
-    clearInterval(this.timer_testUpdateValve);
+    // clearInterval(this.timer_testGetSwitchStatus);
+    // clearInterval(this.timer_testUpdateValve);
 
     clearInterval(this.timer_tickT);
     clearInterval(this.timer_getTlm);
@@ -146,7 +146,6 @@ class App extends Component {
 
           <p>Time increment: {this.state.time}</p>
           <p>current_time increment: {this.state.current_time} </p>
-          <p> Switch status from json-server: {this.state.switch1 ? "ON" : "OFF"}</p>
 
           <h2> CMDテスト </h2>
           <p>バックエンドURL: {config.URL_BACKEND} </p>

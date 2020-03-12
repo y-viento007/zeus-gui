@@ -48,11 +48,11 @@
 }
 {
 	“name” : “hoge-valve”,
-	“data” : {“time”:“20191202_090230” ,”value”:“Close”}
+	“data” : [{“time”:“20191202_090230” ,”value”:“Close”}]
 }
 {
 	“name” : “hoge-heater-onoff”,
-	“data” : {“time”:“20191202_090230” ,”value”:“ON”}
+	“data” : [{“time”:“20191202_090230” ,”value”:“ON”}]
 }
 
 

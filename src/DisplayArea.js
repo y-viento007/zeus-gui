@@ -30,11 +30,20 @@ class TlmContent extends Component {
     fetch(config.URL_BACKEND, {
       method: 'POST',
       body: JSON.stringify(json_body),
+      timeout: 1000,
       headers: new Headers({ 'Content-type' : 'application/json' })
     }).then(res => res.json())
       .then(
         (result) => {
-          this.setState({ data: result.data });
+          // console.log(result.data);
+          // console.log(result.name);
+          if(result.data.length > 0){
+            this.setState({ data: result.data });
+          }else{
+            console.log(result.data.length);
+            this.setState({ data: [{time:this.props.current_time, value:0, status:"error"}] });
+          }
+         
         },
         (error) => { this.setState({ error }); }
       )
@@ -60,7 +69,7 @@ class TlmContent extends Component {
     } else if (this.props.tlm_data.display_type === "value"){
       return (
         <div className="TlmContent-Value">
-          <p style={{padding:0, margin:0}}> {this.props.tlm_data.display_name} : {this.state.data.value} (Time: {this.state.data.time}) </p>
+          <p style={{padding:0, margin:0}}> {this.props.tlm_data.name} : {this.state.data[0].value} (Time: {this.state.data[0].time}) </p>
         </div>
       );
     } else {
@@ -77,7 +86,7 @@ class DisplayArea extends Component {
 
  //  constructor(props) {
  //    super(props);
-	// }
+  // }
 
 
 

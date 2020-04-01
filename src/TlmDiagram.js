@@ -3,16 +3,20 @@ import config from 'AppConfig';
 import './TlmDiagram.css';
 
 class TlmDiagram extends Component {
-  constructor(props) {
+	constructor(props) {
     super(props);
+    // stateはデフォルトなし
+    // POST時にstateを追加する（あまり良くないかもだがとりあえず）
+    // render()のsvgが追加されたstateを読む
     this.state = {
     };
     this.requestTlmData = this.requestTlmData.bind(this);
-  }
+	}
 
-  test(){return 0}
+	test(){return 0}
 
   requestTlmData(tlm_data){
+    // POSTするbody
     const json_body = {
       ID: tlm_data.ID,
       name : tlm_data.name,
@@ -28,13 +32,22 @@ class TlmDiagram extends Component {
       body: JSON.stringify(json_body),
       headers: new Headers({ 'Content-type' : 'application/json' })
     }).then(res => res.json())
-      .then(
+        .then(
         (result) => {
-          if (result.data[0].value===true){
+          // 返答が空配列でないことを確認
+          if(result.data.length > 0){
+            // valueがtrueならOpen, falseならClose
+            if (result.data[0].value===true){
             this.setState({ [tlm_data.name]: "Valve-Open"  });
-          } else if (result.data[0].value===false) {
+            } else if (result.data[0].value===false) {
+              this.setState({ [tlm_data.name]: "Valve-Close" });
+            }
+          }else{
+            // 返答が空配列ならとりあえずバルブClose
+            console.log(result.data.length);
             this.setState({ [tlm_data.name]: "Valve-Close" });
           }
+          
         },
         (error) => { this.setState({ error }); }
       )
@@ -43,21 +56,21 @@ class TlmDiagram extends Component {
 
 
   componentDidMount() {
-    this.timer_request_array = this.props.tlm_data_array.map((tlm_data) =>{
-      return setInterval(this.requestTlmData, 1000, tlm_data)
-    })
+  	this.timer_request_array = this.props.tlm_data_array.map((tlm_data) =>{
+  		return setInterval(this.requestTlmData, 1000, tlm_data)
+  	})
   }
 
   componentWillUnmount() {
-    this.timer_request_array.map((timer)=>{
-      return clearInterval(timer);
-    })
+  	this.timer_request_array.map((timer)=>{
+  		return clearInterval(timer);
+  	})
   }
 
   render() {
     return (
         <div className="TlmDiagram">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="800" className="Image-SystemDiagram" alt="SystemDiagram">
+        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="800" className="Image-SystemDiagram" alt="SystemDiagram">
             <defs>
                 <clipPath id="a">
                   <path d="M0 0h800v1200H0z"></path>
@@ -77,7 +90,7 @@ class TlmDiagram extends Component {
             </svg>
         </div>
     );
-  }
+	}
 }
 
 export default TlmDiagram;

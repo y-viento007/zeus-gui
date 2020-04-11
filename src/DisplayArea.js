@@ -124,14 +124,6 @@ class DisplayArea extends Component {
         </div>
 
         <hr size="3"></hr>
-
-        <h2> POSTして受け取ったデータの表示確認(TlmContentを使用) </h2>
-        <p>バックエンドURL: {config.URL_BACKEND} </p>
-        {/*  要素数だけTlmDisplayを作成 */}
-        {tlm_data_array.map((tlm_data) =>
-          <TlmContent key={"displaytest-"+tlm_data.ID} tlm_data={tlm_data} current_time={current_time} />
-        )}
-
       </div>
     );
   }

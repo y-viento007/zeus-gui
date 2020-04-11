@@ -161,17 +161,6 @@ class App extends Component {
           </div>
           */}
 
-          {/* inline svg */}
-          <div className="Box-SystemDiagram">
-
-            <p> SVG test </p>
-            
-
-            
-
-
-          </div>
-
         </div>
 
       </div>

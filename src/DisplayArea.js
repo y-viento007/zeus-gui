@@ -61,15 +61,19 @@ class TlmContent extends Component {
     // console.log(this.state.data);
     if (this.props.tlm_data.display_type === "graph"){
       return (
-        <div className="TlmContent-Graph">
-          <p style={{padding:0, margin:0}}> {this.props.tlm_data.display_name} </p>
-          <TlmGraph data= {this.state.data} x_key="time" y_key="value" />
+        <div className="Graph">
+          <TlmGraph data= {this.state.data} x_key="time" y_key="value" label={this.props.tlm_data.display_name} />
         </div>
       );
     } else if (this.props.tlm_data.display_type === "value"){
       return (
-        <div className="TlmContent-Value">
-          <p style={{padding:0, margin:0}}> {this.props.tlm_data.name} : {this.state.data[0].value} (Time: {this.state.data[0].time}) </p>
+        <div className="TlmContent-body">
+          <div className="Label">
+            <p style={{padding:0, margin:0}}> {this.props.tlm_data.display_name} </p>
+          </div>
+          <div className="Data">
+            <p style={{padding:0, margin:0}}> {this.state.data[0].value} </p>
+          </div>
         </div>
       );
     } else {
@@ -105,6 +109,10 @@ class DisplayArea extends Component {
                 if(column===window_data.column){
                   return (
                     <div className={"Window"} key={window_data.name} id={window_data.name}>
+                      <div className="Window-header">
+                        <p style={{padding:0, margin:0}}>Test Window Label</p>
+                      </div>
+                      <div className="Window-body">
                       {/*  TlmContentをwindowに振り分ける */}
                       {tlm_data_array.map((tlm_data) => {
                         if(tlm_data.display_window===window_data.name){
@@ -115,6 +123,7 @@ class DisplayArea extends Component {
                           }
                         }else{return null}}
                       )} 
+                      </div>
                     </div>
                   )
                 }}

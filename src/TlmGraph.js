@@ -22,13 +22,13 @@ class TlmGraph extends Component {
   render() {
     return (
         <div className="TlmGraph-body">
+          <p style={{padding:0, margin:0, color: "rgba(255,255,255,0.9)"}}> {this.props.label} </p>
           <VictoryChart
             theme={VictoryTheme.material}
             width={288} height={144}
             padding={{top: 10, bottom: 50, left: 50, right: 30}}
           >
             <VictoryAxis
-              label="Time"
               style={{
                 grid: {
                   stroke: "rgba(255,255,255,0.5)",

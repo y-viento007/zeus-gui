@@ -21,7 +21,8 @@
   flex-direction: column;
   align-items: left;
   justify-content: center;
-  font-size: calc(15px + 2vmin);
+
+  font-size: calc(20px + 2vmin);
   color: rgba(255,255,255,0.9);
 
   font-family: 'SpaceFont';
@@ -43,7 +44,10 @@
   font-weight: 600;
   font-size: 15px;
   text-shadow:0 0 40px rgba(255,255,255,0.5);
+
   color: rgba(255,255,255,0.6);
+
+  /*filter: drop-shadow(0 0 40px rgba(255,255,255,0.5));*/
 }
 
 .Test-body{

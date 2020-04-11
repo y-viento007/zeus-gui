@@ -1,29 +1,29 @@
-﻿1,temperature01,hoge [degC],graph,graph_1,3,1
-2,temperature02,hoge [degC],graph,graph_1,3,1
-3,temperature03,hoge [degC],graph,graph_1,3,1
-4,temperature04,hoge [degC],graph,graph_1,3,1
-5,temperature05,hoge [degC],graph,graph_1,3,1
-6,temperature06,hoge [degC],graph,graph_2,3,1
-7,temperature07,hoge [degC],graph,graph_2,3,1
-8,temperature08,hoge [degC],graph,graph_2,3,1
-9,temperature09,hoge [degC],graph,graph_2,3,1
-10,temperature10,hoge [degC],graph,graph_2,3,1
-11,valve_open_close01,hoge,value,value_1,0,null
-12,valve_open_close02,hoge,value,value_1,0,null
-13,valve_open_close03,hoge,value,value_1,0,null
-14,valve_open_close04,hoge,value,value_1,0,null
-15,valve_open_close05,hoge,value,value_2,0,null
-16,valve_open_close06,hoge,value,value_2,0,null
-17,valve_open_close07,hoge,value,value_2,0,null
-18,valve_open_close08,hoge,value,value_2,0,null
-19,valve_open_close09,hoge,value,value_3,0,null
-20,valve_open_close10,hoge,value,value_3,0,null
-21,valve_open_close11,hoge,value,value_3,0,null
-22,valve_open_close12,hoge,value,value_3,0,null
-23,valve_open_close13,hoge,value,value_4,0,null
-24,heater_on_off01,hoge,value,value_4,0,null
-25,heater_on_off02,hoge,value,value_4,0,null
-26,heater_on_off03,hoge,value,value_4,0,null
-27,heater_on_off04,hoge,value,value_4,0,null
-28,heater_on_off05,hoge,value,value_4,0,null
+﻿1,temperature01,hogeTemp#01 [degC],graph,graph_1,3,1
+2,temperature02,hogeTemp#02 [degC],graph,graph_1,3,1
+3,temperature03,hogeTemp#03 [degC],graph,graph_1,3,1
+4,temperature04,hogeTemp#04 [degC],graph,graph_1,3,1
+5,temperature05,hogeTemp#05 [degC],graph,graph_1,3,1
+6,temperature06,hogeTemp#06 [degC],graph,graph_2,3,1
+7,temperature07,hogeTemp#07 [degC],graph,graph_2,3,1
+8,temperature08,hogeTemp#08 [degC],graph,graph_2,3,1
+9,temperature09,hogeTemp#09 [degC],graph,graph_2,3,1
+10,temperature10,hogeTemp#10 [degC],graph,graph_2,3,1
+11,valve_open_close01,Valve#01,value,value_1,0,null
+12,valve_open_close02,Valve#02,value,value_1,0,null
+13,valve_open_close03,Valve#03,value,value_1,0,null
+14,valve_open_close04,Valve#04,value,value_1,0,null
+15,valve_open_close05,Valve#05,value,value_2,0,null
+16,valve_open_close06,Valve#06,value,value_2,0,null
+17,valve_open_close07,Valve#07,value,value_2,0,null
+18,valve_open_close08,Valve#08,value,value_2,0,null
+19,valve_open_close09,Valve#09,value,value_3,0,null
+20,valve_open_close10,Valve#10,value,value_3,0,null
+21,valve_open_close11,Valve#11,value,value_3,0,null
+22,valve_open_close12,Valve#12,value,value_3,0,null
+23,valve_open_close13,Valve#13,value,value_4,0,null
+24,heater_on_off01,Heater#01,value,value_4,0,null
+25,heater_on_off02,Heater#02,value,value_4,0,null
+26,heater_on_off03,Heater#03,value,value_4,0,null
+27,heater_on_off04,Heater#04,value,value_4,0,null
+28,heater_on_off05,Heater#05,value,value_4,0,null
 29,diagram,null,diagram,diagram,null,null

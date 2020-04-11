@@ -2,7 +2,7 @@
   {
     "ID": "﻿1",
     "name": "temperature01",
-    "display_name": "hoge [degC]",
+    "display_name": "hogeTemp#01 [degC]",
     "display_type": "graph",
     "display_window": "graph_1",
     "time_range": "3",
@@ -11,7 +11,7 @@
   {
     "ID": "2",
     "name": "temperature02",
-    "display_name": "hoge [degC]",
+    "display_name": "hogeTemp#02 [degC]",
     "display_type": "graph",
     "display_window": "graph_1",
     "time_range": "3",
@@ -20,7 +20,7 @@
   {
     "ID": "3",
     "name": "temperature03",
-    "display_name": "hoge [degC]",
+    "display_name": "hogeTemp#03 [degC]",
     "display_type": "graph",
     "display_window": "graph_1",
     "time_range": "3",
@@ -29,7 +29,7 @@
   {
     "ID": "4",
     "name": "temperature04",
-    "display_name": "hoge [degC]",
+    "display_name": "hogeTemp#04 [degC]",
     "display_type": "graph",
     "display_window": "graph_1",
     "time_range": "3",
@@ -38,7 +38,7 @@
   {
     "ID": "5",
     "name": "temperature05",
-    "display_name": "hoge [degC]",
+    "display_name": "hogeTemp#05 [degC]",
     "display_type": "graph",
     "display_window": "graph_1",
     "time_range": "3",
@@ -47,7 +47,7 @@
   {
     "ID": "6",
     "name": "temperature06",
-    "display_name": "hoge [degC]",
+    "display_name": "hogeTemp#06 [degC]",
     "display_type": "graph",
     "display_window": "graph_2",
     "time_range": "3",
@@ -56,7 +56,7 @@
   {
     "ID": "7",
     "name": "temperature07",
-    "display_name": "hoge [degC]",
+    "display_name": "hogeTemp#07 [degC]",
     "display_type": "graph",
     "display_window": "graph_2",
     "time_range": "3",
@@ -65,7 +65,7 @@
   {
     "ID": "8",
     "name": "temperature08",
-    "display_name": "hoge [degC]",
+    "display_name": "hogeTemp#08 [degC]",
     "display_type": "graph",
     "display_window": "graph_2",
     "time_range": "3",
@@ -74,7 +74,7 @@
   {
     "ID": "9",
     "name": "temperature09",
-    "display_name": "hoge [degC]",
+    "display_name": "hogeTemp#09 [degC]",
     "display_type": "graph",
     "display_window": "graph_2",
     "time_range": "3",
@@ -83,7 +83,7 @@
   {
     "ID": "10",
     "name": "temperature10",
-    "display_name": "hoge [degC]",
+    "display_name": "hogeTemp#10 [degC]",
     "display_type": "graph",
     "display_window": "graph_2",
     "time_range": "3",
@@ -92,7 +92,7 @@
   {
     "ID": "11",
     "name": "valve_open_close01",
-    "display_name": "hoge",
+    "display_name": "Valve#01",
     "display_type": "value",
     "display_window": "value_1",
     "time_range": "0",
@@ -101,7 +101,7 @@
   {
     "ID": "12",
     "name": "valve_open_close02",
-    "display_name": "hoge",
+    "display_name": "Valve#02",
     "display_type": "value",
     "display_window": "value_1",
     "time_range": "0",
@@ -110,7 +110,7 @@
   {
     "ID": "13",
     "name": "valve_open_close03",
-    "display_name": "hoge",
+    "display_name": "Valve#03",
     "display_type": "value",
     "display_window": "value_1",
     "time_range": "0",
@@ -119,7 +119,7 @@
   {
     "ID": "14",
     "name": "valve_open_close04",
-    "display_name": "hoge",
+    "display_name": "Valve#04",
     "display_type": "value",
     "display_window": "value_1",
     "time_range": "0",
@@ -128,7 +128,7 @@
   {
     "ID": "15",
     "name": "valve_open_close05",
-    "display_name": "hoge",
+    "display_name": "Valve#05",
     "display_type": "value",
     "display_window": "value_2",
     "time_range": "0",
@@ -137,7 +137,7 @@
   {
     "ID": "16",
     "name": "valve_open_close06",
-    "display_name": "hoge",
+    "display_name": "Valve#06",
     "display_type": "value",
     "display_window": "value_2",
     "time_range": "0",
@@ -146,7 +146,7 @@
   {
     "ID": "17",
     "name": "valve_open_close07",
-    "display_name": "hoge",
+    "display_name": "Valve#07",
     "display_type": "value",
     "display_window": "value_2",
     "time_range": "0",
@@ -155,7 +155,7 @@
   {
     "ID": "18",
     "name": "valve_open_close08",
-    "display_name": "hoge",
+    "display_name": "Valve#08",
     "display_type": "value",
     "display_window": "value_2",
     "time_range": "0",
@@ -164,7 +164,7 @@
   {
     "ID": "19",
     "name": "valve_open_close09",
-    "display_name": "hoge",
+    "display_name": "Valve#09",
     "display_type": "value",
     "display_window": "value_3",
     "time_range": "0",
@@ -173,7 +173,7 @@
   {
     "ID": "20",
     "name": "valve_open_close10",
-    "display_name": "hoge",
+    "display_name": "Valve#10",
     "display_type": "value",
     "display_window": "value_3",
     "time_range": "0",
@@ -182,7 +182,7 @@
   {
     "ID": "21",
     "name": "valve_open_close11",
-    "display_name": "hoge",
+    "display_name": "Valve#11",
     "display_type": "value",
     "display_window": "value_3",
     "time_range": "0",
@@ -191,7 +191,7 @@
   {
     "ID": "22",
     "name": "valve_open_close12",
-    "display_name": "hoge",
+    "display_name": "Valve#12",
     "display_type": "value",
     "display_window": "value_3",
     "time_range": "0",
@@ -200,7 +200,7 @@
   {
     "ID": "23",
     "name": "valve_open_close13",
-    "display_name": "hoge",
+    "display_name": "Valve#13",
     "display_type": "value",
     "display_window": "value_4",
     "time_range": "0",
@@ -209,7 +209,7 @@
   {
     "ID": "24",
     "name": "heater_on_off01",
-    "display_name": "hoge",
+    "display_name": "Heater#01",
     "display_type": "value",
     "display_window": "value_4",
     "time_range": "0",
@@ -218,7 +218,7 @@
   {
     "ID": "25",
     "name": "heater_on_off02",
-    "display_name": "hoge",
+    "display_name": "Heater#02",
     "display_type": "value",
     "display_window": "value_4",
     "time_range": "0",
@@ -227,7 +227,7 @@
   {
     "ID": "26",
     "name": "heater_on_off03",
-    "display_name": "hoge",
+    "display_name": "Heater#03",
     "display_type": "value",
     "display_window": "value_4",
     "time_range": "0",
@@ -236,7 +236,7 @@
   {
     "ID": "27",
     "name": "heater_on_off04",
-    "display_name": "hoge",
+    "display_name": "Heater#04",
     "display_type": "value",
     "display_window": "value_4",
     "time_range": "0",
@@ -245,7 +245,7 @@
   {
     "ID": "28",
     "name": "heater_on_off05",
-    "display_name": "hoge",
+    "display_name": "Heater#05",
     "display_type": "value",
     "display_window": "value_4",
     "time_range": "0",

@@ -30,20 +30,49 @@ class TlmGraph extends Component {
             <VictoryAxis
               label="Time"
               style={{
-                axisLabel: {fontSize: 12, padding: 30}, 
-                tickLabels: { fontSize: 12 },
+                grid: {
+                  stroke: "rgba(255,255,255,0.5)",
+                  strokeWidth: 0.5
+                },
+                axis: { stroke: "rgba(255,255,255,0.5)"},
+                axisLabel: {
+                  fontSize: 12, 
+                  padding: 30,
+                  fill: "rgba(255,255,255,0.5)"
+                }, 
+                ticks:{
+                  stroke: "rgba(255,255,255,0.5)",
+                  strokeWidth: 1
+                },
                 tickLabels: { 
                   fontFamily: "Rajdhani",
+                  fontSize: 12,
+                  fill: "rgba(255,255,255,0.5)"
+                },
               }}
               tickFormat={(t) => `${t}`.slice(9,11)+`:`+`${t}`.slice(11,13)+`:`+`${t}`.slice(13,15)}
               tickCount={4}
               // tickFormat={(t) => `${t}`+`:`+`${t}`+`:`+`${t}`}
             />
             <VictoryAxis dependentAxis
-              style={{ tickLabels: {
-                  fontSize: 12
+              className="VictoryAxis"
+              style={{
+                grid: {
+                  stroke: "rgba(255,255,255,0.5)",
+                  strokeWidth: 0.5
+                },
+                axis: { 
+                  stroke: "rgba(255,255,255,0.5)",
+                  strokeWidth: 1
+                },
+                ticks:{
+                  stroke: "rgba(255,255,255,0.5)",
+                  strokeWidth: 1
+                },
                 tickLabels: {
                   fontFamily: "Rajdhani",
+                  fontSize: 12,
+                  fill: "rgba(255,255,255,0.5)"
                 }}}
             />
             <VictoryLine 
@@ -52,6 +81,10 @@ class TlmGraph extends Component {
               data={this.props.data}
               x={this.props.x_key}
               y={this.props.y_key} 
+
+              style={{
+                data: { stroke: "rgba(255,255,255,0.9)", strokeWidth: 2 }
+              }}
             />
           </VictoryChart>
         </div>

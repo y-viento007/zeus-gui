@@ -32,6 +32,8 @@ class TlmGraph extends Component {
               style={{
                 axisLabel: {fontSize: 12, padding: 30}, 
                 tickLabels: { fontSize: 12 },
+                tickLabels: { 
+                  fontFamily: "Rajdhani",
               }}
               tickFormat={(t) => `${t}`.slice(9,11)+`:`+`${t}`.slice(11,13)+`:`+`${t}`.slice(13,15)}
               tickCount={4}
@@ -40,6 +42,8 @@ class TlmGraph extends Component {
             <VictoryAxis dependentAxis
               style={{ tickLabels: {
                   fontSize: 12
+                tickLabels: {
+                  fontFamily: "Rajdhani",
                 }}}
             />
             <VictoryLine 

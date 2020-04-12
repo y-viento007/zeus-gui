@@ -9,15 +9,21 @@ class TlmGraph extends Component {
 	constructor(props) {
     super(props);
     this.state = {
-      data: props.data,
-      x_key: props.x_key,
-      y_key: props.y_key,
+      y_min: 0.0,
+      y_max: 10.0,
     };
 	}
 
-  // componentDidUpdate() {
-  //   this.setState({ data: this.props.data });
-  // }
+  static getDerivedStateFromProps(nextProps, prevState) {
+    let y_min = Math.min.apply(null, nextProps.data.map(function(o){return o[nextProps.y_key];}));
+    let y_max = Math.max.apply(null, nextProps.data.map(function(o){return o[nextProps.y_key];}));
+
+    return {
+      y_min: y_max-y_min<0.1 ? (y_max+y_min)/2-0.05 : y_min,
+      y_max: y_max-y_min<0.1 ? (y_max+y_min)/2+0.05 : y_max,
+    }
+  }
+
 
   render() {
     return (
@@ -27,6 +33,7 @@ class TlmGraph extends Component {
             theme={VictoryTheme.material}
             width={288} height={144}
             padding={{top: 10, bottom: 50, left: 50, right: 30}}
+            domain={{ y: [this.state.y_min, this.state.y_max] }}
           >
             <VictoryAxis
               style={{
@@ -34,7 +41,10 @@ class TlmGraph extends Component {
                   stroke: "rgba(255,255,255,0.5)",
                   strokeWidth: 0.5
                 },
-                axis: { stroke: "rgba(255,255,255,0.5)"},
+                axis: { 
+                  stroke: "rgba(255,255,255,0.5)",
+                  strokeWidth: 2
+                },
                 axisLabel: {
                   fontSize: 12, 
                   padding: 30,
@@ -63,7 +73,7 @@ class TlmGraph extends Component {
                 },
                 axis: { 
                   stroke: "rgba(255,255,255,0.5)",
-                  strokeWidth: 1
+                  strokeWidth: 2
                 },
                 ticks:{
                   stroke: "rgba(255,255,255,0.5)",

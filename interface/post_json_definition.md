@@ -9,6 +9,7 @@
 		“//” : “name”はテレメ項目名,
 	“name” : “hoge-voltage”,
 		“//” : 以下のtime関連は、time_rangeが0なら戻り値は”current_time”の1データのみ（系統図表示や数値表示向け）、0でないなら戻り値は”current_time”-”time_range”から”current_time”の範囲のデータを”time_delta”刻みで（グラフの表示向け）,
+		"//" : 例えば、time_delta=2[s], time_range=3[s], の時は、"今の時刻"を基準としてtime_delta=2[s]ずつ減らしていき、[今の時刻-3[s]:今の時刻]の範囲に入る時刻を返す,
 	“current_time” : “20191202_090230”,
 	“time_range” : 30,
 	“time_delta” : 1,

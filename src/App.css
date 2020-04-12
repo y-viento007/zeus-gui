@@ -48,6 +48,11 @@
   color: rgba(255,255,255,0.6);
 
   /*filter: drop-shadow(0 0 40px rgba(255,255,255,0.5));*/
+
+  background-image:
+   radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+
 }
 
 .Test-body{

@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import DisplayArea from './DisplayArea.js';
+import CmdWindow from "./CmdWindow.js"
 
 import config from 'AppConfig';
 
@@ -28,6 +29,8 @@ class App extends Component {
       valve_color: "green",
       valve_stroke: "black",
       valve_class: "valve0",
+
+      isPoppedOut: false,
     };
     console.log(this.state.tlm_data_array);
 
@@ -36,6 +39,9 @@ class App extends Component {
     this.testUpdateValve = this.testUpdateValve.bind(this);
     this.testSendCmd = this.testSendCmd.bind(this);
     this.tickT = this.tickT.bind(this);
+
+    this.popout = this.popout.bind(this);
+    this.popoutClosed = this.popoutClosed.bind(this);
   }
 
   ////////////////////////
@@ -90,6 +96,14 @@ class App extends Component {
       )
   }
   ////////////////////////
+
+  popout() {
+    this.setState({ isPoppedOut: true });
+  }
+
+  popoutClosed(){
+    this.setState({ isPoppedOut: false });
+  }
 
 
   tickT() {
@@ -150,6 +164,13 @@ class App extends Component {
           <h2> CMDテスト </h2>
           <p>バックエンドURL: {config.URL_BACKEND} </p>
           <button onClick={this.testSendCmd}>CMDテスト</button>
+
+          <button onClick={this.popout}>CMDウィンドウ表示</button>
+          { this.state.isPoppedOut ?
+            <CmdWindow onClosing={this.popoutClosed} /> : false
+          }
+
+          <p> </p>
 
           
 

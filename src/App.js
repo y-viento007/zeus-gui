@@ -37,7 +37,6 @@ class App extends Component {
     // thisを弄りたいならbindする
     this.testGetSwitchStatus = this.testGetSwitchStatus.bind(this); 
     this.testUpdateValve = this.testUpdateValve.bind(this);
-    this.testSendCmd = this.testSendCmd.bind(this);
     this.tickT = this.tickT.bind(this);
 
     this.popout = this.popout.bind(this);
@@ -75,26 +74,7 @@ class App extends Component {
         }
       )
   }
-  testSendCmd(){
-    const json_body = {
-      revision : this.state.cmd_data.revision,
-      type : this.state.cmd_data.type,
-      name: this.state.cmd_data.name,
-      args: this.state.cmd_data.args,
-    }
-
-    fetch(config.URL_BACKEND, {
-      method: 'POST',
-      body: JSON.stringify(json_body),
-      headers: new Headers({ 'Content-type' : 'application/json' })
-    }).then(res => res.json())
-      .then(
-        (result) => {
-          console.log(result.ack);
-        },
-        (error) => { this.setState({ error }); }
-      )
-  }
+  
   ////////////////////////
 
   popout() {

@@ -49,6 +49,12 @@ class CmdWindow extends React.PureComponent {
     this.externalWindow.document.body.appendChild(this.containerEl);
 
     copyStyles(document, this.externalWindow.document);
+
+    // update the state in the parent component if the user closes the 
+    // new window
+    this.externalWindow.addEventListener('beforeunload', () => {
+      this.props.closeWindowPortal();
+    });
   }
 
   componentWillUnmount() {

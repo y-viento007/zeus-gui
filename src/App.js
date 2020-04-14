@@ -157,11 +157,11 @@ class App extends Component {
         </div>
 
         {this.state.isPoppedOut && (
-          <CmdWindow>
+          <CmdWindow closeWindowPortal={this.popoutClosed}>
             <div className="App-body">
               <p>Even though I render in a different window, I share state!</p>
               <h3 className="test">コマンドテスト</h3>
-              <button className="CmdButton" onClick={() => this.setState({ isPoppedOut: false })} >
+              <button className="CmdButton" onClick={() => this.popoutClosed()} >
                 Close me!
               </button>
             </div>

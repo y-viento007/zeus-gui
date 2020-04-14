@@ -145,15 +145,7 @@ class App extends Component {
           <p>バックエンドURL: {config.URL_BACKEND} </p>
           <button onClick={this.testSendCmd}>CMDテスト</button>
 
-          <button onClick={this.popout}>CMDウィンドウ表示</button>
-          { this.state.isPoppedOut ?
-            <CmdWindow onClosing={this.popoutClosed} /> : false
-          }
-
-          <p> </p>
-
-          
-
+          <button className="CmdButton" onClick={this.popout}>CMDウィンドウ表示</button>
 
           {/* import svg */}
           {/*
@@ -163,6 +155,18 @@ class App extends Component {
           */}
 
         </div>
+
+        {this.state.isPoppedOut && (
+          <CmdWindow>
+            <div className="App-body">
+              <p>Even though I render in a different window, I share state!</p>
+              <h3 className="test">コマンドテスト</h3>
+              <button className="CmdButton" onClick={() => this.setState({ isPoppedOut: false })} >
+                Close me!
+              </button>
+            </div>
+          </CmdWindow>
+        )}
 
       </div>
     );

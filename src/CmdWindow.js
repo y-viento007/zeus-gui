@@ -1,53 +1,62 @@
 import React, { Component } from 'react';
-// import './CmdWindow.css';
+import ReactDOM from 'react-dom';
 import config from 'AppConfig';
 
 import Popout from 'react-popout';
 
-class CmdWindow extends Component {
-  constructor(props) {
-    super(props);
-  　
-    this.state = {
-      cmd_data : config.CMD_DATA,
-    };
+// ポップアップウィンドウの作り方
+// スタイルのコピーも行う
+// https://medium.com/hackernoon/using-a-react-16-portal-to-do-something-cool-2a2d627b0202
+function copyStyles(sourceDoc, targetDoc) {
+  Array.from(sourceDoc.styleSheets).forEach(styleSheet => {
+    if (styleSheet.cssRules) { // true for inline styles
+      const newStyleEl = sourceDoc.createElement('style');
 
-    this.testSendCmd = this.testSendCmd.bind(this);
-  }
+      Array.from(styleSheet.cssRules).forEach(cssRule => {
+        newStyleEl.appendChild(sourceDoc.createTextNode(cssRule.cssText));
+      });
 
-  testSendCmd(){
-    const json_body = {
-      revision : this.state.cmd_data.revision,
-      type : this.state.cmd_data.type,
-      name: this.state.cmd_data.name,
-      args: this.state.cmd_data.args,
+      targetDoc.head.appendChild(newStyleEl);
+    } else if (styleSheet.href) { // true for stylesheets loaded from a URL
+      const newLinkEl = sourceDoc.createElement('link');
+
+      newLinkEl.rel = 'stylesheet';
+      newLinkEl.href = styleSheet.href;
+      targetDoc.head.appendChild(newLinkEl);
     }
-
-    fetch(config.URL_BACKEND, {
-      method: 'POST',
-      body: JSON.stringify(json_body),
-      headers: new Headers({ 'Content-type' : 'application/json' })
-    }).then(res => res.json())
-      .then(
-        (result) => {
-          console.log(result.ack);
-        },
-        (error) => { this.setState({ error }); }
-      )
-  }
-
-  render() {
-    return (
-      <div>
-        <Popout title='Test' onClosing={this.props.onClosing}>
-          <h3>コマンドテスト</h3>
-          <button onClick={this.testSendCmd}>CMDテスト</button>
-        </Popout>
-      </div>
-    );
-  }
+  });
 }
 
+
+class CmdWindow extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    // STEP 1: create a container <div>
+    this.containerEl = document.createElement('div');
+    this.externalWindow = null;
+  }
+  
+  render() {
+    // STEP 2: append props.children to the container <div> that isn't mounted anywhere yet
+    return ReactDOM.createPortal(this.props.children, this.containerEl);
+  }
+
+  componentDidMount() {
+    // STEP 3: open a new browser window and store a reference to it
+    this.externalWindow = window.open('', '', 'width=600,height=400,left=200,top=200');
+
+    // STEP 4: append the container <div> (that has props.children appended to it) to the body of the new window
+    this.externalWindow.document.body.appendChild(this.containerEl);
+
+    copyStyles(document, this.externalWindow.document);
+  }
+
+  componentWillUnmount() {
+    // STEP 5: This will fire when this.state.showWindowPortal in the parent component becomes false
+    // So we tidy up by closing the window
+    this.externalWindow.close();
+  }
+}
 
 
 export default CmdWindow;

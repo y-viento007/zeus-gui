@@ -74,6 +74,27 @@ class App extends Component {
         }
       )
   }
+
+
+  testSendCmd(){
+    const json_body = {
+      revision : this.state.cmd_data.revision,
+      type : this.state.cmd_data.type,
+      name: this.state.cmd_data.name,
+      args: this.state.cmd_data.args,
+    }
+    fetch(config.URL_BACKEND, {
+      method: 'POST',
+      body: JSON.stringify(json_body),
+      headers: new Headers({ 'Content-type' : 'application/json' })
+    }).then(res => res.json())
+      .then(
+        (result) => {
+          console.log(result.ack);
+        },
+        (error) => { this.setState({ error }); }
+      )
+  }
   
   ////////////////////////
 
@@ -143,7 +164,6 @@ class App extends Component {
 
           <h2> CMDテスト </h2>
           <p>バックエンドURL: {config.URL_BACKEND} </p>
-          <button onClick={this.testSendCmd}>CMDテスト</button>
 
           <button className="CmdButton" onClick={this.popout}>CMDウィンドウ表示</button>
 
@@ -159,8 +179,10 @@ class App extends Component {
         {this.state.isPoppedOut && (
           <CmdWindow closeWindowPortal={this.popoutClosed}>
             <div className="App-body">
-              <p>Even though I render in a different window, I share state!</p>
-              <h3 className="test">コマンドテスト</h3>
+              <h3>コマンドテスト</h3>
+              <button className="CmdButton" onClick={() => this.testSendCmd()} >
+                Send Cmd
+              </button>
               <button className="CmdButton" onClick={() => this.popoutClosed()} >
                 Close me!
               </button>

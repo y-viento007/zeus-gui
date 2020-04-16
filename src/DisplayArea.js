@@ -23,6 +23,8 @@ class DisplayFrame extends Component {
       frame_content = <TlmDiagram current_time={current_time} />;
     } else if (frame_type==="collection"){
       frame_content = <TlmCollection tlm_element_setting_array={tlm_element_setting_array} current_time={current_time} />;
+    } else if (frame_type==="info"){
+      frame_content = <TlmCmdInfo current_time={current_time} />;
     } else {
       frame_content = (<div></div>);
       // TBI: エラーを吐く

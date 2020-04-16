@@ -8,8 +8,8 @@
 import moment from 'moment'
 
 // 下記のコマンドをshなどで実行してjsonを作成する
-// jq -R -s -f form.jq tlm.csv > tlm_data_array.json
-var tlm_data_array = require('./tlm_data_array.json');
+// jq -R -s -f form.jq tlm.csv > tlm_element_setting_array.json
+var tlm_element_setting_array = require('./tlm_element_setting_array.json');
 
 
 export default {
@@ -17,58 +17,85 @@ export default {
     // INITIAL_START_DATE : moment("20191202_090230",'YYYYMMDD_HHmmss'),
     INITIAL_START_DATE : moment(),
 
-    TLM_COLUMN_ARRAY : [
-        "diagram",
-        "value",
-        "graph"
+    DISPLAY_COLUMN_SETTING_ARRAY : [
+        {
+          name: "info_diagram",
+          flex_basis: "40%",
+        },
+        {
+          name:"value",
+          flex_basis: "20%",
+        },
+        {
+          name:"graph1",
+          flex_basis: "20%",
+        },
+        {
+          name:"graph2",
+          flex_basis: "20%",
+        },
       ],
 
-    TLM_WINDOW_DATA_ARRAY : [
+    DISPLAY_FRAME_SETTING_ARRAY : [
         {
           ID: 0,
-          name: "diagram",
-          type: "diagram",
-          column: "diagram"
+          name: "info",
+          type: "info",
+          display_column: "info_diagram",
+          flex_basis: "100%",
         },
         {
           ID: 1,
-          name: "graph_1",
-          type: "graph",
-          column: "graph"
+          name: "diagram",
+          type: "diagram",
+          display_column: "info_diagram",
+          flex_basis: "100%",
         },
         {
           ID: 2,
-          name: "value_1",
-          type: "value",
-          column: "diagram"
+          name: "graph_1",
+          type: "collection",
+          display_column: "graph1",
+          flex_basis: "100%",
         },
         {
           ID: 3,
-          name: "value_2",
-          type: "value",
-          column: "value"
+          name: "value_1",
+          type: "collection",
+          display_column: "value",
+          flex_basis: "100%",
         },
         {
           ID: 4,
-          name: "value_3",
-          type: "value",
-          column: "value"
+          name: "value_2",
+          type: "collection",
+          display_column: "value",
+          flex_basis: "100%",
         },
         {
           ID: 5,
-          name: "value_4",
-          type: "value",
-          column: "value"
+          name: "value_3",
+          type: "collection",
+          display_column: "value",
+          flex_basis: "100%",
         },
         {
           ID: 6,
+          name: "value_4",
+          type: "collection",
+          display_column: "value",
+          flex_basis: "100%",
+        },
+        {
+          ID: 7,
           name: "graph_2",
-          type: "graph",
-          column: "graph"
-        }
+          type: "collection",
+          display_column: "graph2",
+          flex_basis: "100%",
+        },
       ],
 
-    TLM_DATA_ARRAY : tlm_data_array,
+    TLM_ELEMENT_SETTING_ARRAY : tlm_element_setting_array,
 
     // DiagramのTLM項目は変わることが少ないはずなので、ベタ打ちで設定する
     TLM_DIAGRAM_DATA_ARRAY : [

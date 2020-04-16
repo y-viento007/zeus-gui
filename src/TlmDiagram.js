@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import config from 'AppConfig';
+import CONFIG from 'AppConfig';
 import './TlmDiagram.css';
 
 class TlmDiagram extends Component {
 	constructor(props) {
     super(props);
-    // stateはデフォルトなし
+
     // POST時にstateを追加する（あまり良くないかもだがとりあえず）
     // render()のsvgが追加されたstateを読む
     this.state = {
+      diagram_setting_array: CONFIG.TLM_DIAGRAM_DATA_ARRAY
     };
     this.requestTlmData = this.requestTlmData.bind(this);
 	}
@@ -27,7 +28,7 @@ class TlmDiagram extends Component {
       revision : 1,
     }
 
-    fetch(config.URL_BACKEND, {
+    fetch(CONFIG.URL_BACKEND, {
       method: 'POST',
       body: JSON.stringify(json_body),
       headers: new Headers({ 'Content-type' : 'application/json' })
@@ -56,7 +57,7 @@ class TlmDiagram extends Component {
 
 
   componentDidMount() {
-  	this.timer_request_array = this.props.tlm_data_array.map((tlm_data) =>{
+  	this.timer_request_array = this.state.diagram_setting_array.map((tlm_data) =>{
   		return setInterval(this.requestTlmData, 1000, tlm_data)
   	})
   }

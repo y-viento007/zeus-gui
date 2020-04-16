@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 // import SystemDiagram from '-!react-svg-loader!./image/SystemDiagram/SystemDiagram.svg'; // -!は必須
 import './App.css';
 
-import DisplayArea from './DisplayArea.js';
-import CmdWindow from "./CmdWindow.js"
+import DisplayArea from './Components/DisplayArea.js';
+import CmdWindow from "./Components/CmdWindow.js"
 
 import CONFIG from 'AppConfig';
 

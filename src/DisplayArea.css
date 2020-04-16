@@ -34,8 +34,9 @@
     /*font-weight: bold;*/
     /*border: dashed 1px #000000;*/
 
-    /*flex-basis: 100%;*/
-    flex-grow: 1;
+    flex-grow: 1; /* Column内で余白があれば等倍で引き伸ばす */
+
+    box-sizing: border-box;
 }
 
 .Window-header{

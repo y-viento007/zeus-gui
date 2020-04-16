@@ -6,8 +6,12 @@
 
 
 .App {
-  text-align: center;
-  width: 1640px;
+  min-width: 1640px;
+
+  background-color: #282c34;
+  background-image:
+   radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 /*.App-logo {
@@ -15,29 +19,34 @@
 }*/
 
 .App-header {
-  background-color: #282c34;
+
   min-height: 5vh;
   display: flex;
   flex-direction: column;
-  align-items: left;
+  text-align: center;
   justify-content: center;
 
-  font-size: calc(20px + 2vmin);
   color: rgba(255,255,255,0.9);
 
-  font-family: 'SpaceFont';
-  font-style: normal;
-  font-weight: normal;
+  background-color: transparent;
 }
 
 .App-title{
   width: 1600px;
   height: auto;
   margin: auto;
+
+  background-color: transparent;
+
+  letter-spacing: 0.1em;
+  font-family: 'SpaceFont';
+  font-size: calc(50px);
+  font-style: normal;
+  font-weight: normal;
 }
 
 .App-body {
-  background-color: #282c34;
+
   min-height: 100vh;
 
   font-family: 'Rajdhani', sans-serif;
@@ -47,11 +56,9 @@
 
   color: rgba(255,255,255,0.6);
 
-  /*filter: drop-shadow(0 0 40px rgba(255,255,255,0.5));*/
+  background-color: transparent;
 
-  background-image:
-   radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
-  background-size: 20px 20px;
+  /*filter: drop-shadow(0 0 40px rgba(255,255,255,0.5));*/
 
 }
 

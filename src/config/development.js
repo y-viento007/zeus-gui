@@ -108,7 +108,7 @@ export default {
     CMD_DATA : {
 	      revision : 1,
 	      type : "CMD",
-	      name: "Valve_open",
+	      name: "Cmd_ValveOpen",
 	      args: [],
 	    }
 };

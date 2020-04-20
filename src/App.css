@@ -43,9 +43,13 @@
   height: auto;
   margin: auto;
 
+  font-family: 'SpaceFont';
+  font-style: normal;
+  font-weight: normal;
   font-size: 40px;
   text-align:center;
   letter-spacing: 0.2em;
+  text-shadow:0 0 10px rgba(255,255,255,0.6);
 }
 
 
@@ -55,7 +59,6 @@
   font-family: 'Rajdhani', sans-serif;
   font-weight: 600;
   font-size: 15px;
-  text-shadow:0 0 60px rgba(255,255,255,0.5);
 
   color: rgba(255,255,255,0.6);
 

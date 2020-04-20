@@ -1,8 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import config from 'AppConfig';
-
-import Popout from 'react-popout';
 
 // ポップアップウィンドウの作り方
 // スタイルのコピーも行う
@@ -28,7 +25,7 @@ function copyStyles(sourceDoc, targetDoc) {
 }
 
 
-class CmdWindow extends React.PureComponent {
+class SubWindow extends React.PureComponent {
   constructor(props) {
     super(props);
     // STEP 1: create a container <div>
@@ -43,7 +40,8 @@ class CmdWindow extends React.PureComponent {
 
   componentDidMount() {
     // STEP 3: open a new browser window and store a reference to it
-    this.externalWindow = window.open('', '', 'width=600,height=400,left=200,top=200');
+    // this.externalWindow = window.open('', '', 'width=600,height=400,left=200,top=200');
+    this.externalWindow = window.open('', '', 'width=400,height=400,left=200,top=200');
 
     // STEP 4: append the container <div> (that has props.children appended to it) to the body of the new window
     this.externalWindow.document.body.appendChild(this.containerEl);
@@ -65,4 +63,4 @@ class CmdWindow extends React.PureComponent {
 }
 
 
-export default CmdWindow;
+export default SubWindow;

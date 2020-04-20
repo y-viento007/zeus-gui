@@ -5,25 +5,32 @@
 } /* ソース：https://www.dafont.com/space-age.font?text=AQT-I&back=theme */
 
 
-.App {
-  min-width: 1640px;
-
+.App,.Sub {
   background-color: #282c34;
   background-image:
-   radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+    radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
   background-size: 20px 20px;
+}
+
+.App {
+  min-width: 1640px;
+}
+
+.Sub {
+  min-width: 400px;
+  min-height: 400px;
 }
 
 /*.App-logo {
   height: 40vmin;
 }*/
 
-.App-header {
 
+.Main-header {
   min-height: 5vh;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  /*align-items: center;*/
   justify-content: center;
 
   color: rgba(255,255,255,0.9);
@@ -31,22 +38,18 @@
   background-color: transparent;
 }
 
-.App-title{
+.Main-title{
   width: 1600px;
   height: auto;
   margin: auto;
 
-  background-color: transparent;
-
-  letter-spacing: 0.1em;
-  font-family: 'SpaceFont';
-  font-size: calc(50px);
-  font-style: normal;
-  font-weight: normal;
+  font-size: 40px;
+  text-align:center;
+  letter-spacing: 0.2em;
 }
 
-.App-body {
 
+.Main-body {
   min-height: 100vh;
 
   font-family: 'Rajdhani', sans-serif;
@@ -56,16 +59,10 @@
 
   color: rgba(255,255,255,0.6);
 
-  background-color: transparent;
+  /*background-color: transparent;*/
 
   /*filter: drop-shadow(0 0 40px rgba(255,255,255,0.5));*/
 
-}
-
-.Test-body{
-  width: 1600px;
-  height: auto;
-  margin: auto;
 }
 
 .Image-SystemDiagram{  
@@ -110,6 +107,6 @@ button.CmdButton:active {
   transition: .0s;
 }
 
-button:focus {
+button.CmdButton:focus {
   outline:0;
 }

@@ -1,6 +1,10 @@
 
 .DisplayArea{
 	display: flex;
+
+    width: 1600px;
+    height: auto;
+    margin: auto;
 }
 
 .DisplayColumn{

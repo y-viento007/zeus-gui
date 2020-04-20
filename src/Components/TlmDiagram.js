@@ -57,7 +57,7 @@ class TlmDiagram extends Component {
 
 
   componentDidMount() {
-  	this.timer_request_array = this.state.diagram_setting_array.map((tlm_data) =>{
+  	this.timer_request_array = CONFIG.TLM_DIAGRAM_DATA_ARRAY.map((tlm_data) =>{
   		return setInterval(this.requestTlmData, 1000, tlm_data)
   	})
   }

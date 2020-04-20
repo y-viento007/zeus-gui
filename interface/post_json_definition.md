@@ -65,6 +65,11 @@
 
 ​
 ### CMD
+成功時
 {	
 	”ack”: ”success”
+}
+失敗時
+{	
+	”ack”: ”failure”
 }

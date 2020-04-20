@@ -6,13 +6,13 @@ import {VictoryChart,VictoryTheme,VictoryLine,VictoryAxis} from 'victory';
 
 
 class TlmGraph extends Component {
-	constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       y_min: 0.0,
       y_max: 10.0,
     };
-	}
+  }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     let y_min = Math.min.apply(null, nextProps.data.map(function(o){return o[nextProps.y_key];}));
@@ -102,7 +102,7 @@ class TlmGraph extends Component {
           </VictoryChart>
         </div>
     );
-	}
+  }
 }
 
 export default TlmGraph;

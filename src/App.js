@@ -4,7 +4,9 @@ import React, { Component } from 'react';
 import './App.css';
 
 import DisplayArea from './Components/DisplayArea.js';
-import CmdWindow from "./Components/CmdWindow.js"
+import CmdArea from './Components/CmdArea.js';
+import SubWindow from "./Components/SubWindow.js"
+
 
 import CONFIG from 'AppConfig';
 
@@ -22,7 +24,7 @@ class App extends Component {
       display_column_setting_array: CONFIG.DISPLAY_COLUMN_SETTING_ARRAY,
       display_frame_setting_array: CONFIG.DISPLAY_FRAME_SETTING_ARRAY,
       tlm_element_setting_array: CONFIG.TLM_ELEMENT_SETTING_ARRAY,
-      cmd_data : CONFIG.CMD_DATA,
+      cmd_data : CONFIG.CMD_TEST_DATA,
       revision: 1,
 
       data: [{time:0,value:0}],
@@ -104,56 +106,63 @@ class App extends Component {
   componentWillUnmount() {
     clearInterval(this.timer_tickT);
     clearInterval(this.timer_getTlm);
+    this.popoutClosed();
   }
 
   /* 画面を生成 */
   render() {
     return (
       <div className="App">
+        <div className="Main">
+          <div className="Main-header">
+            <p className="Main-title">ZEUS GUI</p>
+          </div>
 
-        <div className="App-header">
-          <p className="App-title">ZEUS GUI</p>
-        </div>
-
-        <div className="App-body">
-          <div className="Test-body">
+          <div className="Main-body">
             <DisplayArea 
               display_column_setting_array = {this.state.display_column_setting_array}
               display_frame_setting_array = {this.state.display_frame_setting_array}
               tlm_element_setting_array = {this.state.tlm_element_setting_array} 
-              current_time= {this.state.current_time} />
+              current_time= {this.state.current_time}
+              cmd_window_popout = {this.popout.bind(this)} />
+            <hr size="3"></hr>
+
+            <p>Time increment: {this.state.time}</p>
+            <p>current_time increment: {this.state.current_time} </p>
+
+            <h2> CMDテスト </h2>
+            <p>バックエンドURL: {CONFIG.URL_BACKEND} </p>
+
+            <button className="CmdButton" onClick={this.popout}>CMDウィンドウ表示</button>
+
+            {/* import svg */}
+            {/*
+            <div className="Box-SystemDiagram">
+              <SystemDiagram className="Image-SystemDiagram" alt="SystemDiagram" />
+            </div>
+            */}
+
           </div>
-          <hr size="3"></hr>
-
-          <p>Time increment: {this.state.time}</p>
-          <p>current_time increment: {this.state.current_time} </p>
-
-          <h2> CMDテスト </h2>
-          <p>バックエンドURL: {CONFIG.URL_BACKEND} </p>
-
-          <button className="CmdButton" onClick={this.popout}>CMDウィンドウ表示</button>
-
-          {/* import svg */}
-          {/*
-          <div className="Box-SystemDiagram">
-            <SystemDiagram className="Image-SystemDiagram" alt="SystemDiagram" />
-          </div>
-          */}
-
         </div>
 
         {this.state.isPoppedOut && (
-          <CmdWindow closeWindowPortal={this.popoutClosed}>
-            <div className="App-body">
-              <h3>コマンドテスト</h3>
-              <button className="CmdButton" onClick={() => this.testSendCmd()} >
-                Send Cmd
-              </button>
-              <button className="CmdButton" onClick={() => this.popoutClosed()} >
-                Close me!
-              </button>
+          <SubWindow closeWindowPortal={this.popoutClosed}>
+            <div className="Sub">
+              <div className="Sub-header">
+              </div>
+              <div className="Sub-body">
+                <CmdArea cmd_data_array={CONFIG.CMD_DATA_ARRAY} />
+                <hr size="3"></hr>
+                
+                <button className="CmdButton" onClick={() => this.testSendCmd()} >
+                  Send Test Cmd
+                </button>
+                <button className="CmdButton" onClick={() => this.popoutClosed()} >
+                  Close me!
+                </button>
+              </div>
             </div>
-          </CmdWindow>
+          </SubWindow>
         )}
 
       </div>

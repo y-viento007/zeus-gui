@@ -13,7 +13,6 @@ class TlmElement extends Component {
     super(props);
     this.state = {
       data: [{time:0, value:0},{time:1, value:1}],
-      date: "2019/10/12"
     }
     this.requestTlmData = this.requestTlmData.bind(this);
   }

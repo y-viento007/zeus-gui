@@ -6,13 +6,13 @@ import {VictoryChart,VictoryTheme,VictoryLine,VictoryAxis} from 'victory';
 
 
 class TlmGraph extends Component {
-	constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       y_min: 0.0,
       y_max: 10.0,
     };
-	}
+  }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     let y_min = Math.min.apply(null, nextProps.data.map(function(o){return o[nextProps.y_key];}));
@@ -26,38 +26,41 @@ class TlmGraph extends Component {
 
 
   render() {
+    const bright_color = "rgba(255,255,255,0.5)";
+    const dark_color = "rgba(255,255,255,0.9)";
+
     return (
         <div className="TlmGraph-body">
-          <p style={{padding:0, margin:0, color: "rgba(255,255,255,0.9)"}}> {this.props.label} </p>
+          <p style={{padding:0, margin:0, color: dark_color}}> {this.props.label} </p>
           <VictoryChart
             theme={VictoryTheme.material}
             width={288} height={144}
-            padding={{top: 10, bottom: 50, left: 50, right: 30}}
+            padding={{top: 6, bottom: 35, left: 50, right: 30}}
             domain={{ y: [this.state.y_min, this.state.y_max] }}
           >
             <VictoryAxis
               style={{
                 grid: {
-                  stroke: "rgba(255,255,255,0.5)",
+                  stroke: bright_color,
                   strokeWidth: 0.5
                 },
                 axis: { 
-                  stroke: "rgba(255,255,255,0.5)",
+                  stroke: bright_color,
                   strokeWidth: 2
                 },
                 axisLabel: {
                   fontSize: 12, 
                   padding: 30,
-                  fill: "rgba(255,255,255,0.5)"
+                  fill: bright_color
                 }, 
                 ticks:{
-                  stroke: "rgba(255,255,255,0.5)",
+                  stroke: bright_color,
                   strokeWidth: 1
                 },
                 tickLabels: { 
                   fontFamily: "Rajdhani",
                   fontSize: 12,
-                  fill: "rgba(255,255,255,0.5)"
+                  fill: bright_color
                 },
               }}
               tickFormat={(t) => `${t}`.slice(9,11)+`:`+`${t}`.slice(11,13)+`:`+`${t}`.slice(13,15)}
@@ -68,21 +71,21 @@ class TlmGraph extends Component {
               className="VictoryAxis"
               style={{
                 grid: {
-                  stroke: "rgba(255,255,255,0.5)",
+                  stroke: bright_color,
                   strokeWidth: 0.5
                 },
                 axis: { 
-                  stroke: "rgba(255,255,255,0.5)",
+                  stroke: bright_color,
                   strokeWidth: 2
                 },
                 ticks:{
-                  stroke: "rgba(255,255,255,0.5)",
+                  stroke: bright_color,
                   strokeWidth: 1
                 },
                 tickLabels: {
                   fontFamily: "Rajdhani",
                   fontSize: 12,
-                  fill: "rgba(255,255,255,0.5)"
+                  fill: bright_color
                 }}}
             />
             <VictoryLine 
@@ -93,13 +96,13 @@ class TlmGraph extends Component {
               y={this.props.y_key} 
 
               style={{
-                data: { stroke: "rgba(255,255,255,0.9)", strokeWidth: 2 }
+                data: { stroke: dark_color, strokeWidth: 2 }
               }}
             />
           </VictoryChart>
         </div>
     );
-	}
+  }
 }
 
 export default TlmGraph;

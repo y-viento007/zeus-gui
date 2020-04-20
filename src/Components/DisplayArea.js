@@ -50,9 +50,6 @@ class DisplayFrame extends Component {
 // TLMを表示するエリア
 // DisplayFrameを並べる
 class DisplayArea extends Component {
-
-
-
   render() {
     const display_column_setting_array = this.props.display_column_setting_array;
     const display_frame_setting_array = this.props.display_frame_setting_array;

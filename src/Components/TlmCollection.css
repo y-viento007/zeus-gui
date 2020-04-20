@@ -1,0 +1,57 @@
+
+.TlmCollection {
+    margin: 0; 
+    padding: 0;
+    /*display: flex;*/
+    color: rgba(255,255,255,0.9);
+}
+
+.TlmElement {
+    margin: 0; 
+    padding: 0;
+}
+
+
+.Value {
+    margin: 0; 
+    padding: 0;
+    display: flex;
+}
+
+.Value-Label {
+    margin: 0;
+    padding: 0;
+
+    /* 残りのスペースはLabelで占有する */
+    flex-grow: 1;
+}
+
+.Value-Name {
+    margin: 0;
+    padding: 0;
+    height: 18px;
+}
+
+.Value-Bar {
+    margin: 0;
+    padding: 0;
+    margin-right: 10em;
+    /*height: 5px;*/
+    border-top: solid 5px rgba(173, 239, 255, 0.6);
+
+    transition: 0.1s;
+}
+
+.Value-Value {
+    margin: 0; 
+    margin-left:auto;
+    padding: 0;
+
+    /* 残りのスペースはLabelで占有する */
+    flex-grow: 0; 
+
+    height: 28px;
+
+    text-shadow:0 0 10px rgba(255,255,255,0.8);
+    font-size: 25px;
+}

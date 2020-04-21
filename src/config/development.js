@@ -16,6 +16,7 @@ export default {
     URL_BACKEND: "http://localhost:3001/status",
     // INITIAL_START_DATE : moment("20191202_090230",'YYYYMMDD_HHmmss'),
     INITIAL_START_DATE : moment(),
+    POST_INTERVAL_MS: 500,
 
     DISPLAY_COLUMN_SETTING_ARRAY : [
         {

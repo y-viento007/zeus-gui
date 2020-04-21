@@ -100,8 +100,8 @@ class App extends Component {
   // 定期実行する関数を設定
   // http://webdesign-dackel.com/2015/11/03/redux-periodic-action/
   componentDidMount() {
-    this.timer_tickT = setInterval(this.tickT, 1000);
-    this.timer_getTlm = setInterval(this.getTlm, 1000);
+    this.timer_tickT = setInterval(this.tickT, CONFIG.POST_INTERVAL_MS);
+    this.timer_getTlm = setInterval(this.getTlm, CONFIG.POST_INTERVAL_MS);
   }
   componentWillUnmount() {
     clearInterval(this.timer_tickT);

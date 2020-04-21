@@ -44,7 +44,6 @@ class TlmElement extends Component {
             this.setState({ data: result.data });
           }else{
             console.log(result.data.length);
-            this.setState({ data: [{time:this.props.current_time, value:0, status:"error"}] });
           }
          
         },
@@ -53,7 +52,7 @@ class TlmElement extends Component {
   }
 
   componentDidMount() {
-    this.timer_request = setInterval(this.requestTlmData, 1000);
+    this.timer_request = setInterval(this.requestTlmData, CONFIG.POST_INTERVAL_MS);
   }
 
   componentWillUnmount() {

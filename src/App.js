@@ -123,7 +123,7 @@ class App extends Component {
         </div>
 
         {this.state.isPoppedOut && (
-          <SubWindow closeWindowPortal={this.popoutClosed}>
+          <SubWindow width="400" height="400" closeWindowPortal={this.close_popout_cmd}>
             <div className="Sub">
               <div className="Sub-header">
               </div>

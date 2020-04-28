@@ -29,28 +29,40 @@ class App extends Component {
       cmd_data : CONFIG.CMD_TEST_DATA,
       revision: 1,
 
-
-      isPoppedOut: false,
+      popout_cmd_flag: false,
+      popout_ctrl_flag: false,
     };
     console.log(this.state.tlm_element_setting_array);
 
     // thisを弄りたいならbindする
     this.tickT = this.tickT.bind(this);
 
-    this.popout = this.popout.bind(this);
-    this.popoutClosed = this.popoutClosed.bind(this);
+    this.open_popout_cmd = this.open_popout_cmd.bind(this);
+    this.close_popout_cmd = this.close_popout_cmd.bind(this);
+    this.open_popout_ctrl = this.open_popout_ctrl.bind(this);
+    this.close_popout_ctrl = this.close_popout_ctrl.bind(this);
   }
 
 
   ////////////////////////
 
-  popout() {
-    this.setState({ isPoppedOut: true });
+  // サブウィンドウ表示設定用の関数
+  open_popout_cmd() {
+    this.setState({ popout_cmd_flag: true });
   }
 
-  popoutClosed(){
-    this.setState({ isPoppedOut: false });
+  close_popout_cmd(){
+    this.setState({ popout_cmd_flag: false });
   }
+
+  open_popout_ctrl() {
+    this.setState({ popout_ctrl_flag: true });
+  }
+
+  close_popout_ctrl(){
+    this.setState({ popout_ctrl_flag: false });
+  }
+  ////////////////////////
 
 
   // timeの更新
@@ -83,7 +95,8 @@ class App extends Component {
   componentWillUnmount() {
     clearInterval(this.timer_tickT);
     clearInterval(this.timer_getTlm);
-    this.popoutClosed();
+    this.close_popout_cmd();
+    this.close_popout_ctrl();
   }
 
   /* 画面を生成 */
@@ -101,7 +114,7 @@ class App extends Component {
               display_frame_setting_array = {this.state.display_frame_setting_array}
               tlm_element_setting_array = {this.state.tlm_element_setting_array} 
               current_time= {this.state.current_time}
-              cmd_window_popout = {this.popout.bind(this)} />
+              cmd_window_popout = {this.open_popout_cmd.bind(this)} />
             <hr size="3"></hr>
 
             <p>Time increment: {this.state.time}</p>
@@ -110,7 +123,7 @@ class App extends Component {
             <h2> CMDテスト </h2>
             <p>バックエンドURL: {CONFIG.URL_BACKEND} </p>
 
-            <button className="CmdButton" onClick={this.popout}>CMDウィンドウ表示</button>
+            <button className="CmdButton" onClick={this.open_popout_cmd}>CMDウィンドウ表示</button>
 
             {/* import svg */}
             {/*
@@ -122,7 +135,7 @@ class App extends Component {
           </div>
         </div>
 
-        {this.state.isPoppedOut && (
+        {this.state.popout_cmd_flag && (
           <SubWindow width="400" height="400" closeWindowPortal={this.close_popout_cmd}>
             <div className="Sub">
               <div className="Sub-header">
@@ -131,7 +144,7 @@ class App extends Component {
                 <CmdArea cmd_data_array={CONFIG.CMD_DATA_ARRAY} />
                 <hr size="3"></hr>
                 
-                <button className="CmdButton" onClick={() => this.popoutClosed()} >
+                <button className="CmdButton" onClick={() => this.close_popout_cmd()} >
                   Close me!
                 </button>
               </div>

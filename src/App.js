@@ -21,18 +21,14 @@ class App extends Component {
       current_time: CONFIG.INITIAL_START_DATE.format("YYYY-MM-DD HH:MM:SS"),       // TLM表示したい最初の時刻
       initial_start_date: CONFIG.INITIAL_START_DATE,
       gui_start_date: moment(),  // GUIを開始した時刻（GUI内基準時刻）
+      time: 0,
+
       display_column_setting_array: CONFIG.DISPLAY_COLUMN_SETTING_ARRAY,
       display_frame_setting_array: CONFIG.DISPLAY_FRAME_SETTING_ARRAY,
       tlm_element_setting_array: CONFIG.TLM_ELEMENT_SETTING_ARRAY,
       cmd_data : CONFIG.CMD_TEST_DATA,
       revision: 1,
 
-      data: [{time:0,value:0}],
-      switch1:true,
-      time: 0,
-      valve_color: "green",
-      valve_stroke: "black",
-      valve_class: "valve0",
 
       isPoppedOut: false,
     };
@@ -45,26 +41,7 @@ class App extends Component {
     this.popoutClosed = this.popoutClosed.bind(this);
   }
 
-  testSendCmd(){
-    const json_body = {
-      revision : this.state.cmd_data.revision,
-      type : this.state.cmd_data.type,
-      name: this.state.cmd_data.name,
-      args: this.state.cmd_data.args,
-    }
-    fetch(CONFIG.URL_BACKEND, {
-      method: 'POST',
-      body: JSON.stringify(json_body),
-      headers: new Headers({ 'Content-type' : 'application/json' })
-    }).then(res => res.json())
-      .then(
-        (result) => {
-          console.log(result.ack);
-        },
-        (error) => { this.setState({ error }); }
-      )
-  }
-  
+
   ////////////////////////
 
   popout() {
@@ -76,8 +53,8 @@ class App extends Component {
   }
 
 
+  // timeの更新
   tickT() {
-    // timeの更新
     // 0から単純にインクリメントする
     var now_time = this.state.time + 1;
     this.setState({ time: now_time });
@@ -154,9 +131,6 @@ class App extends Component {
                 <CmdArea cmd_data_array={CONFIG.CMD_DATA_ARRAY} />
                 <hr size="3"></hr>
                 
-                <button className="CmdButton" onClick={() => this.testSendCmd()} >
-                  Send Test Cmd
-                </button>
                 <button className="CmdButton" onClick={() => this.popoutClosed()} >
                   Close me!
                 </button>

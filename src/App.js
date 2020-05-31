@@ -5,6 +5,7 @@ import './App.css';
 
 import DisplayArea from './Components/DisplayArea.js';
 import CmdArea from './Components/CmdArea.js';
+import CtrlArea from './Components/CtrlArea.js';
 import SubWindow from "./Components/SubWindow.js"
 
 
@@ -16,7 +17,7 @@ import moment from 'moment';
 class App extends Component {
   constructor(props) {
     super(props);
-  　
+  
     this.state = {
       current_time: CONFIG.INITIAL_START_DATE.format("YYYY-MM-DD HH:MM:SS"),       // TLM表示したい最初の時刻
       initial_start_date: CONFIG.INITIAL_START_DATE,
@@ -73,7 +74,7 @@ class App extends Component {
 
     // current_timeの更新 (形式："2019-12-02 09:02:30")
     // initial_start_dateからインクリメントする
-    var current_date = moment(this.state.initial_start_date.format())　// jsでのオブジェクトの値渡しは初期化しかなさそう
+    var current_date = moment(this.state.initial_start_date.format()) // jsでのオブジェクトの値渡しは初期化しかなさそう
     current_date.add(
       moment().diff(this.state.gui_start_date) , "ms" 
     );                                                // addは元のmomentオブジェクト自体が変更されるっぽい
@@ -124,6 +125,7 @@ class App extends Component {
             <p>バックエンドURL: {CONFIG.URL_BACKEND} </p>
 
             <button className="CmdButton" onClick={this.open_popout_cmd}>CMDウィンドウ表示</button>
+            <button className="CmdButton" onClick={this.open_popout_ctrl}>CTRLウィンドウ表示</button>
 
             {/* import svg */}
             {/*
@@ -145,6 +147,23 @@ class App extends Component {
                 <hr size="3"></hr>
                 
                 <button className="CmdButton" onClick={() => this.close_popout_cmd()} >
+                  Close me!
+                </button>
+              </div>
+            </div>
+          </SubWindow>
+        )}
+
+        {this.state.popout_ctrl_flag && (
+          <SubWindow width="840" height="400" closeWindowPortal={this.close_popout_ctrl}>
+            <div className="Sub">
+              <div className="Sub-header">
+              </div>
+              <div className="Sub-body">
+                <CtrlArea current_time= {this.state.current_time} />
+                <hr size="3"></hr>
+                
+                <button className="CmdButton" onClick={() => this.close_popout_ctrl()} >
                   Close me!
                 </button>
               </div>

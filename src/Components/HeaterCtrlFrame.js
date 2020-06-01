@@ -115,10 +115,6 @@ class HeaterCtrlElement extends Component {
         <div className="EffectiveDuty">{this.state.effective_duty}</div>
         <div className="Current">{this.state.current}</div>
 
-        <button className="UpdateButton" onClick={() => this.updateHeaterTlmAll()} >
-          Update TLM
-        </button>
-
         <select value={this.state.cmd_name} onChange={(e) => this.handleChangeCmdName(e)} >
           <option value="N/A"> N/A </option>
           <option value="Cmd_HeaterOn"> On </option>
@@ -127,13 +123,7 @@ class HeaterCtrlElement extends Component {
           <option value="Cmd_HeaterPwmOff"> PWM Off </option>
           <option value="Cmd_HeaterPwmChangeDuty"> PWM Change Duty </option>
         </select>
-        <input type="text" value={this.state.pwm_value_percent} onChange={(e) => this.handleChangePwmValue(e)} />
-
-        <button className="CmdButton" onClick={() => this.sendCmd()} >
-          Send CMD
-        </button>
-
-      </div>
+        <input type="text" value={this.state.pwm_value_percent} onChange={(e) => this.handleChangePwmValue(e)} />      </div>
     );
   }
 }
@@ -147,7 +137,24 @@ HeaterCtrlElement.propTypes = {
 class HeaterCtrlFrame extends Component {
   constructor(props) {
     super(props);
+    this.element = [];
+    this.updateHeaterTlmAllElements = this.updateHeaterTlmAllElements.bind(this);
   }
+
+  updateHeaterTlmAllElements(){
+    const heater_ctrl_setting_array = CONFIG.HEATER_CTRL_SETTING_ARRAY;
+    heater_ctrl_setting_array.map((heater_ctrl_setting)=>{
+      this.element[heater_ctrl_setting.ID].updateHeaterTlmAll();
+    });
+  }
+
+  sendCmdAllElements(){
+    const heater_ctrl_setting_array = CONFIG.HEATER_CTRL_SETTING_ARRAY;
+    heater_ctrl_setting_array.map((heater_ctrl_setting)=>{
+      this.element[heater_ctrl_setting.ID].sendCmd();
+    });
+  }
+
   render(){
     const heater_ctrl_setting_array = CONFIG.HEATER_CTRL_SETTING_ARRAY;
     return(
@@ -159,9 +166,17 @@ class HeaterCtrlFrame extends Component {
               heater_id={heater_ctrl_setting.heater_id} 
               name={heater_ctrl_setting.name} 
               current_time= {this.props.current_time}
+              ref={(ref) => this.element[heater_ctrl_setting.ID] = ref}
             />
           );
         })}
+
+        <button className="UpdateButton" onClick={() => this.updateHeaterTlmAllElements()} >
+          Update TLM
+        </button>
+        <button className="CmdButton" onClick={() => this.sendCmdAllElements()} >
+          Send CMD
+        </button>
       </div>
     );
   }

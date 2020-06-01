@@ -165,16 +165,16 @@ export default {
         {name:"Cmd_ANOMALY_HANDLER_FLAG_MODIFY_RTV"},
       ],
     HEATER_CTRL_SETTING_ARRAY :[
-      {id: "01", name:"TH"},
-      {id: "02", name:"WH"},
-      {id: "03", name:"VH1"},
-      {id: "04", name:"VH2"},
-      {id: "05", name:"VH3"},
-      {id: "06", name:"VH4"},
-      {id: "07", name:"DTH"},
-      {id: "08", name:"RCH1"},
-      {id: "09", name:"RCH2"},
-      {id: "10", name:"RCH3"},
-      {id: "11", name:"RCH4"}
+      {ID:  1, heater_id: "01" , name:"TH"},
+      {ID:  2, heater_id: "02" , name:"WH"},
+      {ID:  3, heater_id: "03" , name:"VH1"},
+      {ID:  4, heater_id: "04" , name:"VH2"},
+      {ID:  5, heater_id: "05" , name:"VH3"},
+      {ID:  6, heater_id: "06" , name:"VH4"},
+      {ID:  7, heater_id: "07" , name:"DTH"},
+      {ID:  8, heater_id: "08" , name:"RCH1"},
+      {ID:  9, heater_id: "09" , name:"RCH2"},
+      {ID: 10, heater_id: "10" , name:"RCH3"},
+      {ID: 11, heater_id: "11" , name:"RCH4"}
     ]
 };

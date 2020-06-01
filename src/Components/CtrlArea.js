@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 //import CONFIG from 'AppConfig';
+import PropTypes from 'prop-types';
+
 
 import HeaterCtrlFrame from './HeaterCtrlFrame.js';
 
@@ -10,12 +12,16 @@ class CtrlArea extends Component {
   render(){
     return(
       <div className="CtrlArea">
-        <HeaterCtrlFrame current_time= {this.state.current_time}/> 
+        <HeaterCtrlFrame current_time= {this.props.current_time}/> 
         <ValveCtrlFrame />
       </div>
     );
   }
 }
+
+CtrlArea.propTypes = {
+  current_time: PropTypes.string,
+};
 
 class ValveCtrlFrame extends Component {
   constructor(props) {

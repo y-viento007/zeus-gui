@@ -19,7 +19,7 @@ class HeaterCtrlElement extends Component {
   // backendにデータをPOSTでリクエストする
   requestHeaterTlm(state_name,tlm_name){
     // POSTのbodyを作成
-    const heater_id = this.props.id;
+    const heater_id = this.props.heater_id;
     const json_body = {
       name : tlm_name + heater_id,
       time_range : 0,
@@ -108,7 +108,7 @@ class HeaterCtrlElement extends Component {
 
     return(
       <div className="HeaterCtrlElement">
-        <div className="Label">{this.props.id}:{this.props.name}</div>
+        <div className="Label">{this.props.heater_id}:{this.props.name}</div>
         <div className="OnOff">{this.state.on_off}</div>
         <div className="PwmIsEnable">{this.state.pwm_is_enable}</div>
         <div className="Duty">{this.state.duty}</div>
@@ -120,6 +120,7 @@ class HeaterCtrlElement extends Component {
         </button>
 
         <select value={this.state.cmd_name} onChange={(e) => this.handleChangeCmdName(e)} >
+          <option value="N/A"> N/A </option>
           <option value="Cmd_HeaterOn"> On </option>
           <option value="Cmd_HeaterOff"> Off </option>
           <option value="Cmd_HeaterPwmOn"> PWM On </option>
@@ -138,7 +139,7 @@ class HeaterCtrlElement extends Component {
 }
 
 HeaterCtrlElement.propTypes = {
-  id: PropTypes.string,
+  heater_id: PropTypes.string,
   name: PropTypes.string,
   current_time: PropTypes.string,
 };
@@ -154,10 +155,10 @@ class HeaterCtrlFrame extends Component {
         {heater_ctrl_setting_array.map((heater_ctrl_setting)=>{
           return(
             <HeaterCtrlElement 
-              key={heater_ctrl_setting.id} 
-              id={heater_ctrl_setting.id} 
+              key={heater_ctrl_setting.ID} 
+              heater_id={heater_ctrl_setting.heater_id} 
               name={heater_ctrl_setting.name} 
-              current_time= {this.state.current_time}
+              current_time= {this.props.current_time}
             />
           );
         })}
@@ -165,5 +166,9 @@ class HeaterCtrlFrame extends Component {
     );
   }
 }
+
+HeaterCtrlFrame.propTypes = {
+  current_time: PropTypes.string,
+};
 
 export default HeaterCtrlFrame;

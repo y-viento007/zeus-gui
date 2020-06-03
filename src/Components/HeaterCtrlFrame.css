@@ -1,0 +1,26 @@
+
+.HeaterCtrlElement{
+    display: flex;
+}
+
+.HeaterCtrlElement div{
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: rgba(255,255,255,0.9);
+    width: 50px;
+};
+
+/*
+.HeaterCtrlElement .HeaterCtrlElement:first-of-type{
+    
+}
+*/
+
+.Id{
+    flex-basis: 100px;
+    width: 100px;
+}
+    
+    
+

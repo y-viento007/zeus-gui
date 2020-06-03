@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CONFIG from 'AppConfig';
 
+import './HeaterCtrlFrame.css';
 
 class HeaterCtrlElement extends Component {
   constructor(props) {
     super(props);
     this.state = {
       cmd_name : "N/A",
+      on_off : "-",
+      pwm_is_enable : "-",
+      duty : "-",
+      effective_duty : "-",
+      current : "-",
       pwm_value_percent : 0,
     };
 
@@ -17,7 +23,7 @@ class HeaterCtrlElement extends Component {
   }
 
   // backendにデータをPOSTでリクエストする
-  requestHeaterTlm(state_name,tlm_name){
+  requestTlm(state_name,tlm_name){
     // POSTのbodyを作成
     const heater_id = this.props.heater_id;
     const json_body = {
@@ -51,7 +57,7 @@ class HeaterCtrlElement extends Component {
   }
 
   // このヒーターに関するTLMを全て更新する
-  updateHeaterTlmAll(){
+  requestTlmAll(){
     // ヒーター一つが持つTLM名と対応するthis.stateの名前の一覧
     const heater_tlm_data = [
       { state_name: "on_off" , tlm_name: "heater_on_off" },
@@ -62,7 +68,7 @@ class HeaterCtrlElement extends Component {
     ];
     
     heater_tlm_data.map((heater_tlm_data) => {
-      this.requestHeaterTlm(heater_tlm_data.state_name,heater_tlm_data.tlm_name);
+      this.requestTlm(heater_tlm_data.state_name,heater_tlm_data.tlm_name);
     })
 
   }
@@ -108,12 +114,13 @@ class HeaterCtrlElement extends Component {
 
     return(
       <div className="HeaterCtrlElement">
-        <div className="Label">{this.props.heater_id}:{this.props.name}</div>
+        <div className="Id">{parseInt(this.props.heater_id)}</div>
+        <div className="Name">{this.props.name}</div>
         <div className="OnOff">{this.state.on_off}</div>
         <div className="PwmIsEnable">{this.state.pwm_is_enable}</div>
-        <div className="Duty">{this.state.duty}</div>
-        <div className="EffectiveDuty">{this.state.effective_duty}</div>
-        <div className="Current">{this.state.current}</div>
+        <div className="Duty">{this.state.duty}%</div>
+        <div className="EffectiveDuty">{this.state.effective_duty}%</div>
+        <div className="Current">{this.state.current}A</div>
 
         <select value={this.state.cmd_name} onChange={(e) => this.handleChangeCmdName(e)} >
           <option value="N/A"> N/A </option>
@@ -123,7 +130,8 @@ class HeaterCtrlElement extends Component {
           <option value="Cmd_HeaterPwmOff"> PWM Off </option>
           <option value="Cmd_HeaterPwmChangeDuty"> PWM Change Duty </option>
         </select>
-        <input type="text" value={this.state.pwm_value_percent} onChange={(e) => this.handleChangePwmValue(e)} />      </div>
+        <input type="text" value={this.state.pwm_value_percent} onChange={(e) => this.handleChangePwmValue(e)} />
+      </div>
     );
   }
 }
@@ -138,13 +146,13 @@ class HeaterCtrlFrame extends Component {
   constructor(props) {
     super(props);
     this.element = [];
-    this.updateHeaterTlmAllElements = this.updateHeaterTlmAllElements.bind(this);
+    this.requestTlmAllElements = this.requestTlmAllElements.bind(this);
   }
 
-  updateHeaterTlmAllElements(){
+  requestTlmAllElements(){
     const heater_ctrl_setting_array = CONFIG.HEATER_CTRL_SETTING_ARRAY;
     heater_ctrl_setting_array.map((heater_ctrl_setting)=>{
-      this.element[heater_ctrl_setting.ID].updateHeaterTlmAll();
+      this.element[heater_ctrl_setting.ID].requestTlmAll();
     });
   }
 
@@ -159,6 +167,16 @@ class HeaterCtrlFrame extends Component {
     const heater_ctrl_setting_array = CONFIG.HEATER_CTRL_SETTING_ARRAY;
     return(
       <div className="HeaterCtrlFrame">
+        <div className="HeaterCtrlElement">
+          <div className="Id"></div>
+          <div className="Name"></div>
+          <div className="OnOff">ON / OFF</div>
+          <div className="PwmIsEnable">PWM</div>
+          <div className="Duty">PWM Duty</div>
+          <div className="EffectiveDuty">Effective Duty</div>
+          <div className="Current">Current @ON</div>
+        </div>
+        
         {heater_ctrl_setting_array.map((heater_ctrl_setting)=>{
           return(
             <HeaterCtrlElement 
@@ -171,7 +189,7 @@ class HeaterCtrlFrame extends Component {
           );
         })}
 
-        <button className="UpdateButton" onClick={() => this.updateHeaterTlmAllElements()} >
+        <button className="UpdateButton" onClick={() => this.requestTlmAllElements()} >
           Update TLM
         </button>
         <button className="CmdButton" onClick={() => this.sendCmdAllElements()} >

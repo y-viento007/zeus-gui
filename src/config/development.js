@@ -176,5 +176,20 @@ export default {
       {ID:  9, heater_id: "09" , name:"RCH2"},
       {ID: 10, heater_id: "10" , name:"RCH3"},
       {ID: 11, heater_id: "11" , name:"RCH4"}
+    ],
+    VALVE_CTRL_SETTING_ARRAY :[
+      {ID:  1, valve_id: "01" , name:"RV1"},
+      {ID:  2, valve_id: "02" , name:"RV2"},
+      {ID:  3, valve_id: "03" , name:"RV3"},
+      {ID:  4, valve_id: "04" , name:"RV4"},
+      {ID:  5, valve_id: "05" , name:"VDV"},
+      {ID:  6, valve_id: "06" , name:"DTV1"},
+      {ID:  7, valve_id: "07" , name:"DTV2"},
+      {ID:  8, valve_id: "08" , name:"DTV3"},
+      {ID:  9, valve_id: "09" , name:"DTV4"},
+      {ID: 10, valve_id: "10" , name:"RTV1"},
+      {ID: 12, valve_id: "12" , name:"RTV2"},
+      {ID: 13, valve_id: "13" , name:"RTV3"},
+      {ID: 14, valve_id: "14" , name:"RTV4"}
     ]
 };

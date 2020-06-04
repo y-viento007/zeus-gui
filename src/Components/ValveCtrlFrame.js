@@ -63,7 +63,7 @@ class ValveCtrlElement extends Component {
     ];
     
     valve_tlm_data.map((valve_tlm_data) => {
-      this.requestTlm(valve_tlm_data.state_name,valve_tlm_data.tlm_name);
+        return this.requestTlm(valve_tlm_data.state_name,valve_tlm_data.tlm_name);
     })
 
   }
@@ -125,7 +125,7 @@ class ValveCtrlElement extends Component {
           <option value="Cmd_ValveOpenClose"> OpenClose </option>
         </select>
         <input type="text" value={this.state.open_time_ms} onChange={(e) => this.handleChangeOpenTimeValue(e)} />
-        <button className="CmdButton" onClick={() => this.sendCmd()} >
+        <button onClick={() => this.sendCmd()} >
         Send CMD
         </button>
         <input type="checkbox" checked={this.state.is_checked} onChange={(e) => this.handleChangeMultipleState(e)} />
@@ -160,7 +160,7 @@ class ValveCtrlFrame extends Component {
   requestTlmAllElements(){
     const valve_ctrl_setting_array = CONFIG.VALVE_CTRL_SETTING_ARRAY;
     valve_ctrl_setting_array.map((valve_ctrl_setting)=>{
-      this.element[valve_ctrl_setting.ID].requestTlmAll();
+        return this.element[valve_ctrl_setting.ID].requestTlmAll();
     });
   }
 
@@ -223,6 +223,10 @@ class ValveCtrlFrame extends Component {
     const valve_ctrl_setting_array = CONFIG.VALVE_CTRL_SETTING_ARRAY;
     return(
       <div className="ValveCtrlFrame">
+         <button className="UpdateButton" onClick={() => this.requestTlmAllElements()} >
+          Update TLM
+        </button>
+
         <div className="ValveCtrlElement">
           <div className="Id"></div>
           <div className="Name"></div>
@@ -241,10 +245,7 @@ class ValveCtrlFrame extends Component {
             />
           );
         })}
-
-        <button className="UpdateButton" onClick={() => this.requestTlmAllElements()} >
-          Update TLM
-        </button>
+        
         <select value={this.state.cmd_name} onChange={(e) => this.handleChangeCmdName(e)} >
           <option value="N/A"> N/A </option>
           <option value="Cmd_ValveMultipleOpenClose"> Multiple OpenClose </option>

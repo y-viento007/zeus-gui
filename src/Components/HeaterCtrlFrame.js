@@ -68,7 +68,7 @@ class HeaterCtrlElement extends Component {
     ];
     
     heater_tlm_data.map((heater_tlm_data) => {
-      this.requestTlm(heater_tlm_data.state_name,heater_tlm_data.tlm_name);
+      return this.requestTlm(heater_tlm_data.state_name,heater_tlm_data.tlm_name);
     })
 
   }
@@ -152,14 +152,14 @@ class HeaterCtrlFrame extends Component {
   requestTlmAllElements(){
     const heater_ctrl_setting_array = CONFIG.HEATER_CTRL_SETTING_ARRAY;
     heater_ctrl_setting_array.map((heater_ctrl_setting)=>{
-      this.element[heater_ctrl_setting.ID].requestTlmAll();
+      return this.element[heater_ctrl_setting.ID].requestTlmAll();
     });
   }
 
   sendCmdAllElements(){
     const heater_ctrl_setting_array = CONFIG.HEATER_CTRL_SETTING_ARRAY;
     heater_ctrl_setting_array.map((heater_ctrl_setting)=>{
-      this.element[heater_ctrl_setting.ID].sendCmd();
+      return this.element[heater_ctrl_setting.ID].sendCmd();
     });
   }
 
@@ -167,6 +167,10 @@ class HeaterCtrlFrame extends Component {
     const heater_ctrl_setting_array = CONFIG.HEATER_CTRL_SETTING_ARRAY;
     return(
       <div className="HeaterCtrlFrame">
+        <button className="UpdateButton" onClick={() => this.requestTlmAllElements()} >
+          Update TLM
+        </button>
+
         <div className="HeaterCtrlElement">
           <div className="Id"></div>
           <div className="Name"></div>
@@ -189,12 +193,11 @@ class HeaterCtrlFrame extends Component {
           );
         })}
 
-        <button className="UpdateButton" onClick={() => this.requestTlmAllElements()} >
-          Update TLM
-        </button>
-        <button className="CmdButton" onClick={() => this.sendCmdAllElements()} >
-          Send CMD
-        </button>
+        <div className="button">
+          <button className="CmdButton" onClick={() => this.sendCmdAllElements()} >
+            Send CMD
+          </button>
+        </div>
       </div>
     );
   }

@@ -1,4 +1,9 @@
 
+
+.HeaterCtrlFrame{
+    width: 800px;
+}
+
 .HeaterCtrlElement{
     display: flex;
 }
@@ -21,6 +26,3 @@
     flex-basis: 100px;
     width: 100px;
 }
-    
-    
-

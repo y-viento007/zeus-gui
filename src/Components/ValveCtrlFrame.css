@@ -1,4 +1,8 @@
 
+.ValveCtrlFrame{
+    width: 800px;
+}
+
 .ValveCtrlElement{
     display: flex;
 }

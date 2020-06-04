@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import PropTypes from 'prop-types';
+
 // ポップアップウィンドウの作り方
 // スタイルのコピーも行う
 // https://medium.com/hackernoon/using-a-react-16-portal-to-do-something-cool-2a2d627b0202
@@ -62,5 +64,11 @@ class SubWindow extends React.PureComponent {
   }
 }
 
+SubWindow.propTypes = {
+  children: PropTypes.element,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  closeWindowPortal: PropTypes.func,
+};
 
 export default SubWindow;

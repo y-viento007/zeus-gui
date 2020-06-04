@@ -155,7 +155,7 @@ class App extends Component {
         )}
 
         {this.state.popout_ctrl_flag && (
-          <SubWindow width="840" height="400" closeWindowPortal={this.close_popout_ctrl}>
+          <SubWindow width="1200" height="800" closeWindowPortal={this.close_popout_ctrl}>
             <div className="Sub">
               <div className="Sub-header">
               </div>

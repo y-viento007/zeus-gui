@@ -4,6 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - node.jsをインストール
 - ルートディレクトリで`npm install`が必要
 
+- Windows環境で新たに環境構築した際にエラーが出た
+	- グローバルに`react-dev-utils`がないらしいので`npm -g install react-dev-utils`を実行
+	- グローバルに`react-scripts`がないらしいので`npm -g install react-scripts`を実行
+
 ## 手順
 - `src/config`内ファイルで初期設定を行う
 	- URL

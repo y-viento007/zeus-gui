@@ -24,7 +24,9 @@ class DisplayFrame extends Component {
     } else if (frame_type==="collection"){
       frame_content = <TlmCollection tlm_element_setting_array={tlm_element_setting_array} current_time={current_time} />;
     } else if (frame_type==="info"){
-      frame_content = <TlmCmdInfo current_time={current_time} cmd_window_popout={this.props.cmd_window_popout.bind(this)} />;
+      frame_content = <TlmCmdInfo current_time={current_time} 
+                        cmd_window_popout={this.props.cmd_window_popout.bind(this)}
+                        ctrl_window_popout={this.props.ctrl_window_popout.bind(this)}  />;
     } else {
       frame_content = (<div></div>);
       // TBI: エラーを吐く
@@ -80,7 +82,8 @@ class DisplayArea extends Component {
                     tlm_element_setting_array={tlm_element_setting_array.filter((tlm_element_setting) => {
                       return tlm_element_setting.display_frame===display_frame_setting.name})}
                     current_time={current_time}
-                    cmd_window_popout={this.props.cmd_window_popout.bind(this)} />
+                    cmd_window_popout={this.props.cmd_window_popout.bind(this)}
+                    ctrl_window_popout={this.props.ctrl_window_popout.bind(this)} />
                 );
               } else {
                 return null;

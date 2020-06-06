@@ -115,24 +115,16 @@ class App extends Component {
               display_frame_setting_array = {this.state.display_frame_setting_array}
               tlm_element_setting_array = {this.state.tlm_element_setting_array} 
               current_time= {this.state.current_time}
-              cmd_window_popout = {this.open_popout_cmd.bind(this)} />
+              cmd_window_popout = {this.open_popout_cmd.bind(this)}
+              ctrl_window_popout = {this.open_popout_ctrl.bind(this)} />
             <hr size="3"></hr>
 
             <p>Time increment: {this.state.time}</p>
             <p>current_time increment: {this.state.current_time} </p>
+            <p>Backend URL: {CONFIG.URL_BACKEND} </p>
 
-            <h2> CMDテスト </h2>
-            <p>バックエンドURL: {CONFIG.URL_BACKEND} </p>
-
-            <button className="CmdButton" onClick={this.open_popout_cmd}>CMDウィンドウ表示</button>
-            <button className="CmdButton" onClick={this.open_popout_ctrl}>CTRLウィンドウ表示</button>
-
-            {/* import svg */}
-            {/*
-            <div className="Box-SystemDiagram">
-              <SystemDiagram className="Image-SystemDiagram" alt="SystemDiagram" />
-            </div>
-            */}
+            {/* <button className="CmdButton" onClick={this.open_popout_cmd}>CMDウィンドウ表示</button> */}
+            {/* <button className="CmdButton" onClick={this.open_popout_ctrl}>CTRLウィンドウ表示</button> */}
 
           </div>
         </div>

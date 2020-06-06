@@ -68,7 +68,8 @@ class TlmCmdInfo extends Component {
       <div className="TlmCmdInfo">
         <p className="CurrentTime"> {this.props.current_time} </p>
         <p className="RawTlm"> {this.state.raw_tlm} </p>
-        <button className="CmdWindowPopout" onClick={this.props.cmd_window_popout} >CMD Window</button>
+        <button className="CmdWindowPopout PopoutButton" onClick={this.props.cmd_window_popout} >CMD Window</button>
+        <button className="CtrlWindowPopout PopoutButton" onClick={this.props.ctrl_window_popout} >CTRL Window</button>
       </div>
     );
   }
@@ -77,6 +78,7 @@ class TlmCmdInfo extends Component {
 TlmCmdInfo.propTypes = {
   current_time: PropTypes.string,
   cmd_window_popout: PropTypes.func,
+  ctrl_window_popout: PropTypes.func,
 };
 
 export default TlmCmdInfo;

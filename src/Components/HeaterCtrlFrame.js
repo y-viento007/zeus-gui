@@ -82,7 +82,7 @@ class HeaterCtrlElement extends Component {
       revision : 1,
       type : "CMD",
       name: this.state.cmd_name,
-      args: (this.state.cmd_name==="Cmd_HeaterPwmChangeDuty") ? [this.state.pwm_value_percent] : [],
+      args: (this.state.cmd_name==="Cmd_HeaterPwmChangeDuty") ? [Number(this.state.heater_id),Number(this.state.pwm_value_percent)] : [Number(this.state.heater_id)]
     };
     fetch(CONFIG.URL_BACKEND, {
       method: 'POST',

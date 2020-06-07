@@ -77,7 +77,7 @@ class ValveCtrlElement extends Component {
       revision : 1,
       type : "CMD",
       name: this.state.cmd_name,
-      args: (this.state.cmd_name==="Cmd_ValveOpenClose") ? [this.state.open_time_ms] : [],
+      args: (this.state.cmd_name==="Cmd_ValveOpenClose") ? [Number(this.state.valve_id),Number(this.state.open_time_ms)] : [Number(this.state.valve_id)],
     };
     fetch(CONFIG.URL_BACKEND, {
       method: 'POST',
@@ -179,9 +179,9 @@ class ValveCtrlFrame extends Component {
 
     let args = [];
     if (this.state.cmd_name==="Cmd_ValveMultipleOpenClose"){
-        args = [valve_flag, this.state.open_time_ms];
+        args = [Number(valve_flag), Number(this.state.open_time_ms)];
     } else if(this.state.cmd_name==="Cmd_ValveAutoOpenCloseStart") {
-        args = [valve_flag, this.state.open_time_ms, this.state.open_span_ms];
+        args = [Number(valve_flag), Number(this.state.open_time_ms), Number(this.state.open_span_ms)];
     } else if(this.state.cmd_name==="Cmd_ValveAutoOpenCloseEnd") { 
         args = [];
     }

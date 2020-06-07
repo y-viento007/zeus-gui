@@ -10,6 +10,9 @@ class TlmCmdInfo extends Component {
     super(props);
     this.state = {
       raw_tlm: "-",
+      cmd_counter : "-",
+      tlm_counter : "-",
+      cmd_exec_failed : "-",
     }
     this.requestTlm = this.requestTlm.bind(this);
     this.requestTlmAll = this.requestTlmAll.bind(this);
@@ -49,6 +52,9 @@ class TlmCmdInfo extends Component {
     // TLM名と対応するthis.stateの名前の一覧
     const tlm_data = [
       { state_name: "raw_tlm" , tlm_name: "raw_tlm" },
+      { state_name: "cmd_counter" , tlm_name: "command_counter" },
+      { state_name: "tlm_counter" , tlm_name: "telemetry_counter" },
+      { state_name: "cmd_exec_failed" , tlm_name: "command_exec_failed" },
     ];
     
     tlm_data.map((tlm_data) => {
@@ -67,7 +73,11 @@ class TlmCmdInfo extends Component {
     return(
       <div className="TlmCmdInfo">
         <p className="CurrentTime"> {this.props.current_time} </p>
-        <p className="RawTlm"> {this.state.raw_tlm} </p>
+        <p className="RawTlm"> RawTlm :{this.state.raw_tlm} </p>
+        <p className="CmdCounter"> CmdCounter :{this.state.cmd_counter} </p>
+        <p className="TlmCounter"> TlmCounter :{this.state.tlm_counter} </p>
+        <p className="CmdExecFailed"> CmdExecFailed :{this.state.cmd_exec_failed} </p>
+      
         <button className="CmdWindowPopout PopoutButton" onClick={this.props.cmd_window_popout} >CMD Window</button>
         <button className="CtrlWindowPopout PopoutButton" onClick={this.props.ctrl_window_popout} >CTRL Window</button>
       </div>

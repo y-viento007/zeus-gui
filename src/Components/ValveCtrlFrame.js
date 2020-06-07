@@ -72,12 +72,11 @@ class ValveCtrlElement extends Component {
   sendCmd(){
     // N/Aなら何もしない
     if(this.state.cmd_name==="N/A") { return; }
-
     const json_body = {
       revision : 1,
       type : "CMD",
       name: this.state.cmd_name,
-      args: (this.state.cmd_name==="Cmd_ValveOpenClose") ? [Number(this.state.valve_id),Number(this.state.open_time_ms)] : [Number(this.state.valve_id)],
+      args: (this.state.cmd_name==="Cmd_ValveOpenClose") ? [Number(this.props.valve_id),Number(this.state.open_time_ms)] : [Number(this.props.valve_id)],
     };
     fetch(CONFIG.URL_BACKEND, {
       method: 'POST',
